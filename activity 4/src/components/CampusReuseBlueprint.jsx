@@ -60,7 +60,7 @@ export default function CampusReuseBlueprint({
           onClick={onOpenReport}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-white shadow-sm transition-all self-start sm:self-center"
         >
-          <span>View Full PDF Report</span>
+          <span>View Report & Export (.doc)</span>
         </button>
       </div>
 

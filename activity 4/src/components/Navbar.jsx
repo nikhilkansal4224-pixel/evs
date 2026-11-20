@@ -84,8 +84,8 @@ export default function Navbar({
               onClick={onOpenReport}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-bold bg-teal-700 hover:bg-teal-800 text-white shadow-sm transition-all hover:scale-105"
             >
-              <Printer className="w-3.5 h-3.5" />
-              <span>Print Engineering Report</span>
+              <FileText className="w-3.5 h-3.5 text-teal-200" />
+              <span>Engineering Report (.doc)</span>
             </button>
           </div>
 

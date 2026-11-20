@@ -97,8 +97,8 @@ export default function Navbar({
               onClick={() => setActiveTab('report')}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#1E3A2F] hover:bg-[#142720] text-white shadow-sm transition-all"
             >
-              <Printer className="w-3.5 h-3.5" />
-              <span>Print LMS Report</span>
+              <FileText className="w-3.5 h-3.5 text-emerald-300" />
+              <span>Report View & .DOC</span>
             </button>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function Navbar({
             }`}
           >
             <FileText className="w-4 h-4" />
-            <span>4. Print-Ready Report</span>
+            <span>4. Report Summary (.DOC)</span>
           </button>
         </div>
       </div>

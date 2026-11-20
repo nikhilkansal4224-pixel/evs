@@ -271,10 +271,10 @@ export default function AlternativesSimulator({
                 <td className="py-2.5 px-3 font-medium text-emerald-800">Saves ~₹300/yr & prevents toxic polymer ingestion.</td>
               </tr>
               <tr>
-                <td className="py-2.5 px-3 font-semibold text-slate-900">Hostel Blocks (A, B, C)</td>
-                <td className="py-2.5 px-3">Shampoo & washing powder sachets</td>
-                <td className="py-2.5 px-3">Install wall-mounted bulk liquid soap dispensers in shared washrooms.</td>
-                <td className="py-2.5 px-3 font-medium text-emerald-800">Reduces sachet purchase overhead by 40%.</td>
+                <td className="py-2.5 px-3 font-semibold text-slate-900">Hostels & Convenience Stores</td>
+                <td className="py-2.5 px-3">Shampoo & personal care sachets</td>
+                <td className="py-2.5 px-3">Zero-waste bulk liquid refill stations at campus tuck shops and solid shampoo bar incentives.</td>
+                <td className="py-2.5 px-3 font-medium text-emerald-800">Eliminates 150+ unrecyclable MLP sachets per student/yr.</td>
               </tr>
               <tr>
                 <td className="py-2.5 px-3 font-semibold text-slate-900">Campus Entry & Stationery</td>
@@ -283,10 +283,10 @@ export default function AlternativesSimulator({
                 <td className="py-2.5 px-3 font-medium text-emerald-800">Eliminates ₹3-₹5 per-bag tuck shop penalty.</td>
               </tr>
               <tr>
-                <td className="py-2.5 px-3 font-semibold text-slate-900">Academic Blocks & Lawns</td>
+                <td className="py-2.5 px-3 font-semibold text-slate-900">Food Courts & Academic Blocks</td>
                 <td className="py-2.5 px-3">Packaged 1L PET water bottles</td>
-                <td className="py-2.5 px-3">Maintain daily TDS logs on campus RO water filtration coolers to restore student trust.</td>
-                <td className="py-2.5 px-3 font-medium text-emerald-800">Saves up to ₹2,000/yr per student on bottled water.</td>
+                <td className="py-2.5 px-3">Prohibit single-use packaged PET bottles at food courts, leveraging certified campus RO stations with BYOB hydration incentives.</td>
+                <td className="py-2.5 px-3 font-medium text-emerald-800">Saves up to ₹1,600/yr per student while eliminating virgin plastic bottles.</td>
               </tr>
             </tbody>
           </table>

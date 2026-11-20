@@ -73,8 +73,8 @@ export default function PortalHome({
               onClick={onOpenEvaluation}
               className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-slate-200 border border-white/20 transition-colors"
             >
-              <Printer className="w-4 h-4" />
-              <span>Master LMS Evaluation Report</span>
+              <FileCheck className="w-4 h-4 text-emerald-300" />
+              <span>Master Report (.doc)</span>
             </button>
           </div>
         </div>

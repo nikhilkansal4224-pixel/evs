@@ -8,7 +8,8 @@ import {
   Building2, 
   Trees, 
   Layers,
-  ArrowLeft
+  ArrowLeft,
+  FileDown
 } from 'lucide-react';
 import { 
   PROJECT_METADATA_ACT4, 
@@ -52,6 +53,223 @@ export default function EngineeringReportModal({
     window.print();
   };
 
+  const handleDownloadDoc = () => {
+    const docHTML = `<!DOCTYPE html>
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+  <meta charset='utf-8'>
+  <title>EcoFlow Campus Wastewater Blueprint - EVS Activity 4</title>
+  <!--[if gte mso 9]>
+  <xml>
+  <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+  </w:WordDocument>
+  </xml>
+  <![endif]-->
+  <style>
+    body { font-family: 'Calibri', 'Segoe UI', Arial, sans-serif; font-size: 11pt; color: #1e293b; line-height: 1.5; margin: 20mm; }
+    h1 { color: #0f766e; font-size: 18pt; border-bottom: 2pt solid #0f766e; padding-bottom: 4pt; margin-bottom: 4pt; }
+    h2 { color: #0f766e; font-size: 13pt; margin-top: 14pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; }
+    p, li { line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 10pt 0; font-size: 10pt; }
+    th { background-color: #f0fdfa; color: #134e4a; border: 1pt solid #cbd5e1; padding: 6pt 8pt; font-weight: bold; text-align: left; }
+    td { border: 1pt solid #cbd5e1; padding: 5pt 8pt; vertical-align: top; }
+    .kpi-table td { background-color: #f8fafc; text-align: center; padding: 8pt; }
+    .footer-box { margin-top: 25pt; border-top: 1.5pt solid #94a3b8; padding-top: 6pt; }
+  </style>
+</head>
+<body>
+  <div>
+    <p style="font-size: 10pt; font-weight: bold; color: #0f766e; text-transform: uppercase; margin: 0;">${PROJECT_METADATA_ACT4.institution}</p>
+    <h1>CAMPUS NATURE-BASED WASTEWATER TREATMENT BLUEPRINT</h1>
+    <p style="font-size: 11pt; font-weight: bold; color: #475569; margin: 2pt 0;">
+      ${PROJECT_METADATA_ACT4.course} • ${PROJECT_METADATA_ACT4.activityNo}: "${PROJECT_METADATA_ACT4.activityTitle}"
+    </p>
+    <p style="font-size: 10pt; color: #64748b; margin: 0 0 12pt 0;">
+      Academic Year ${PROJECT_METADATA_ACT4.academicYear} • Submission Date: ${new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
+    </p>
+  </div>
+
+  <h2>1. Design Inflow & Population Profile</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Design Parameter</th>
+        <th>Calculated Value</th>
+        <th>Engineering Significance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Effluent Source Stream</strong></td>
+        <td>${currentSource.name}</td>
+        <td>${currentSource.description}</td>
+      </tr>
+      <tr>
+        <td><strong>Design Population</strong></td>
+        <td><strong>${studentCount} Students / Daily Users</strong></td>
+        <td>Design basis for campus decentralized treatment unit</td>
+      </tr>
+      <tr>
+        <td><strong>Daily Flow Volume (Q)</strong></td>
+        <td><strong style="color: #0f766e;">${dailyVolumeLitres.toLocaleString()} Litres / day</strong></td>
+        <td>Total daily greywater discharge</td>
+      </tr>
+      <tr>
+        <td><strong>Annual Clean Water Recovered</strong></td>
+        <td><strong style="color: #15803d;">${annualFreshwaterSavedKl.toLocaleString()} kL (m³) / year</strong></td>
+        <td>94% recovery yield (6% natural wetland evapotranspiration)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Multi-Stage Nature-Based Treatment Specifications (DEWATS)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Stage No. & Unit Name</th>
+        <th>Category & Retention</th>
+        <th>Dimensions</th>
+        <th>Filter Media Strata & Depths</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${TREATMENT_STAGES.map(s => `
+        <tr>
+          <td><strong>Stage ${s.stageNumber}: ${s.shortName}</strong></td>
+          <td>${s.category}<br/>HRT: <strong>${s.hrtHours} Hours</strong></td>
+          <td>${s.dimensions}</td>
+          <td>${s.mediaLayers.map(l => `${l.name} (${l.depth})`).join('<br/>')}</td>
+        </tr>
+      `).join('')}
+    </tbody>
+  </table>
+
+  <h2>3. Influent vs. Effluent Water Quality Performance (CPCB Standards)</h2>
+  <p>
+    Selected Phytoremediation Species: <strong>${currentPlant.name}</strong> (<em>${currentPlant.botanicalName}</em>)
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Water Quality Parameter</th>
+        <th style="text-align: right;">Raw Greywater</th>
+        <th style="text-align: right;">Treated Effluent</th>
+        <th style="text-align: right;">Removal %</th>
+        <th style="text-align: right;">CPCB Safe Threshold</th>
+        <th style="text-align: center;">Compliance Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Biochemical Oxygen Demand (BOD₅)</strong></td>
+        <td style="text-align: right;">${baselinePollutants.bod} mg/L</td>
+        <td style="text-align: right; font-weight: bold; color: #0f766e;">${treatedBod} mg/L</td>
+        <td style="text-align: right;">${Math.round(eff.bodReduction * 100)}%</td>
+        <td style="text-align: right;">&le; ${CPCB_STANDARDS.bodMax} mg/L</td>
+        <td style="text-align: center; color: #15803d; font-weight: bold;">PASS &check;</td>
+      </tr>
+      <tr>
+        <td><strong>Total Suspended Solids (TSS)</strong></td>
+        <td style="text-align: right;">${baselinePollutants.tss} mg/L</td>
+        <td style="text-align: right; font-weight: bold; color: #0f766e;">${treatedTss} mg/L</td>
+        <td style="text-align: right;">${Math.round(eff.tssReduction * 100)}%</td>
+        <td style="text-align: right;">&le; ${CPCB_STANDARDS.tssMax} mg/L</td>
+        <td style="text-align: center; color: #15803d; font-weight: bold;">PASS &check;</td>
+      </tr>
+      <tr>
+        <td><strong>Water Turbidity</strong></td>
+        <td style="text-align: right;">${baselinePollutants.turbidity} NTU</td>
+        <td style="text-align: right; font-weight: bold; color: #0f766e;">${treatedTurbidity} NTU</td>
+        <td style="text-align: right;">${Math.round(eff.turbidityReduction * 100)}%</td>
+        <td style="text-align: right;">&le; ${CPCB_STANDARDS.turbidityMax} NTU</td>
+        <td style="text-align: center; color: #15803d; font-weight: bold;">PASS &check;</td>
+      </tr>
+      <tr>
+        <td><strong>Oil & Grease (FOG)</strong></td>
+        <td style="text-align: right;">${baselinePollutants.oilGrease} mg/L</td>
+        <td style="text-align: right; font-weight: bold; color: #0f766e;">${treatedOilGrease} mg/L</td>
+        <td style="text-align: right;">${Math.round(eff.oilGreaseReduction * 100)}%</td>
+        <td style="text-align: right;">&le; ${CPCB_STANDARDS.oilGreaseMax} mg/L</td>
+        <td style="text-align: center; color: #15803d; font-weight: bold;">PASS &check;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. Wetland Sizing Calculation & Campus Non-Potable Allocation</h2>
+  <p><strong>Constructed Wetland Sizing Equation:</strong> <code>A_s = (Q &times; HRT) / (d &times; &epsilon;)</code></p>
+  <p>
+    For daily inflow Q = ${Q.toFixed(2)} m&sup3;/day, HRT = 48h (2 days), bed depth d = 0.6m, and void porosity &epsilon; = 0.38:<br/>
+    <strong>Required Surface Area (A_s):</strong> <span style="color: #0f766e; font-size: 13pt; font-weight: bold;">${requiredSurfaceAreaM2} m&sup2;</span> (${calculatedLength}m Length &times; ${calculatedWidth}m Width)
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Campus Reuse Destination</th>
+        <th style="text-align: right;">Allocation %</th>
+        <th style="text-align: right;">Daily Volume (L/day)</th>
+        <th>Sustainability Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Campus Garden & Lawn Irrigation</strong></td>
+        <td style="text-align: right; font-weight: bold;">65%</td>
+        <td style="text-align: right;">${Math.round(dailyRecoveredLitres * 0.65).toLocaleString()} L</td>
+        <td>Provides natural trace nitrogen and phosphorus for campus greenery</td>
+      </tr>
+      <tr>
+        <td><strong>Toilet Dual-Flushing Network</strong></td>
+        <td style="text-align: right; font-weight: bold;">25%</td>
+        <td style="text-align: right;">${Math.round(dailyRecoveredLitres * 0.25).toLocaleString()} L</td>
+        <td>Displaces potable municipal groundwater for sanitation flushes</td>
+      </tr>
+      <tr>
+        <td><strong>Corridor Mopping & Floor Washing</strong></td>
+        <td style="text-align: right; font-weight: bold;">10%</td>
+        <td style="text-align: right;">${Math.round(dailyRecoveredLitres * 0.10).toLocaleString()} L</td>
+        <td>Zero chemical or freshwater footprint for campus maintenance</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer-box">
+    <table style="border: none;">
+      <tr style="border: none;">
+        <td style="border: none; width: 50%;">
+          <p><strong>Student Project Team Declaration:</strong></p>
+          <br/><br/>
+          <p>____________________________________<br/>
+          Lead Student Investigator<br/>
+          Environmental Studies (Activity No. 4)</p>
+        </td>
+        <td style="border: none; width: 50%; text-align: right;">
+          <p><strong>Faculty Evaluator Evaluation & Signature:</strong></p>
+          <br/><br/>
+          <p>____________________________________<br/>
+          Course Instructor, Dept. of Environmental Sciences<br/>
+          Score: _______ / 25 Marks</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>`;
+
+    const blob = new Blob(['\ufeff', docHTML], { type: 'application/msword' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `EVS_Activity4_EcoFlow_Treatment_Report.doc`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm p-2 sm:p-6 animate-fade-in">
       
@@ -67,14 +285,25 @@ export default function EngineeringReportModal({
 
         <div className="flex items-center gap-2">
           <span className="text-xs text-slate-500 hidden sm:inline">
-            Print Preview Mode • Ready for PDF Submission
+            Engineering Blueprint • Ready for DOC / PDF Submission
           </span>
+
+          <button
+            onClick={handleDownloadDoc}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-teal-800 hover:bg-teal-900 text-white shadow-md transition-all hover:scale-105"
+            title="Download formatted Microsoft Word Document (.doc)"
+          >
+            <FileDown className="w-4 h-4 text-teal-300" />
+            <span>Download Word Report (.doc)</span>
+          </button>
+
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-teal-800 hover:bg-teal-900 text-white shadow-md transition-all hover:scale-105"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition-all"
+            title="Print or Save as PDF"
           >
-            <Printer className="w-4 h-4" />
-            <span>Print / Save as PDF</span>
+            <Printer className="w-4 h-4 text-slate-600" />
+            <span className="hidden sm:inline">Print / PDF</span>
           </button>
         </div>
       </div>

@@ -8,7 +8,8 @@ import {
   CheckCircle2, 
   AlertCircle,
   HelpCircle,
-  Download
+  Download,
+  FileDown
 } from 'lucide-react';
 import { PROJECT_METADATA, ITEM_DEFINITIONS, STUDENT_SWAPS } from '../data/initialData';
 
@@ -72,6 +73,230 @@ export default function PrintReportView({
     window.print();
   };
 
+  const handleDownloadDoc = () => {
+    const docHTML = `<!DOCTYPE html>
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+  <meta charset='utf-8'>
+  <title>Campus Plastic Audit Report - EVS Activity 3</title>
+  <!--[if gte mso 9]>
+  <xml>
+  <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+  </w:WordDocument>
+  </xml>
+  <![endif]-->
+  <style>
+    body { font-family: 'Calibri', 'Segoe UI', Arial, sans-serif; font-size: 11pt; color: #1e293b; line-height: 1.5; margin: 20mm; }
+    h1 { color: #1e3a2f; font-size: 18pt; border-bottom: 2pt solid #1e3a2f; padding-bottom: 4pt; margin-bottom: 4pt; }
+    h2 { color: #1e3a2f; font-size: 13pt; margin-top: 14pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; }
+    p, li { line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 10pt 0; font-size: 10pt; }
+    th { background-color: #f1f5f9; color: #0f172a; border: 1pt solid #cbd5e1; padding: 6pt 8pt; font-weight: bold; text-align: left; }
+    td { border: 1pt solid #cbd5e1; padding: 5pt 8pt; vertical-align: top; }
+    .kpi-table td { background-color: #f8fafc; text-align: center; padding: 8pt; }
+    .footer-box { margin-top: 25pt; border-top: 1.5pt solid #94a3b8; padding-top: 6pt; }
+  </style>
+</head>
+<body>
+  <div>
+    <p style="font-size: 10pt; font-weight: bold; color: #1e3a2f; text-transform: uppercase; margin: 0;">${PROJECT_METADATA.institution}</p>
+    <h1>CAMPUS PLASTIC FOOTPRINT AUDIT & ACTION REPORT</h1>
+    <p style="font-size: 11pt; font-weight: bold; color: #475569; margin: 2pt 0;">
+      ${PROJECT_METADATA.course} • ${PROJECT_METADATA.activityNo}: "${PROJECT_METADATA.activityTitle}"
+    </p>
+    <p style="font-size: 10pt; color: #64748b; margin: 0 0 12pt 0;">
+      Academic Year ${PROJECT_METADATA.academicYear} • Submission Date: ${new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
+    </p>
+  </div>
+
+  <h2>Project Investigation Team (Group of ${members.length})</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Student Name</th>
+        <th>Enrollment / Roll No.</th>
+        <th>Project Category / Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${members.map((m, idx) => `
+        <tr>
+          <td>${idx + 1}</td>
+          <td><strong>${m.name}</strong></td>
+          <td>${m.roll}</td>
+          <td>${m.role}</td>
+        </tr>
+      `).join('')}
+    </tbody>
+  </table>
+
+  <h2>1. Executive Summary & Key Findings</h2>
+  <p>
+    Over a rigorous 7-day monitoring period (14 Nov 2026 – 20 Nov 2026), our ${members.length}-member student cohort tracked every single-use plastic item consumed during lectures, canteen meals, hostel living, and campus commutes. Standard item weights were verified using laboratory analytical scale balances and life-cycle assessment (LCA) literature.
+  </p>
+  <table class="kpi-table">
+    <tr>
+      <td>
+        <span style="font-size: 9pt; color: #64748b; text-transform: uppercase;">Total Items Logged</span><br/>
+        <strong style="font-size: 14pt; color: #0f172a;">${totalItems} units</strong><br/>
+        <span style="font-size: 9pt; color: #64748b;">7-Day Audit</span>
+      </td>
+      <td>
+        <span style="font-size: 9pt; color: #64748b; text-transform: uppercase;">Group Weekly Weight</span><br/>
+        <strong style="font-size: 14pt; color: #1e3a2f;">${totalWeightGrams} grams</strong><br/>
+        <span style="font-size: 9pt; color: #64748b;">≈ ${weeklyWeightKg} kg / group</span>
+      </td>
+      <td>
+        <span style="font-size: 9pt; color: #64748b; text-transform: uppercase;">Campus 500-Student Extrap.</span><br/>
+        <strong style="font-size: 14pt; color: #b45309;">${yearlyCampusKg.toLocaleString()} kg/yr</strong><br/>
+        <span style="font-size: 9pt; color: #64748b;">≈ ${yearlyCampusTonnes} Tonnes</span>
+      </td>
+      <td>
+        <span style="font-size: 9pt; color: #64748b; text-transform: uppercase;">Top Culprit Item</span><br/>
+        <strong style="font-size: 12pt; color: #be123c;">${topCulprit?.name || 'N/A'}</strong><br/>
+        <span style="font-size: 9pt; color: #64748b;">${topCulprit?.percentage}% share</span>
+      </td>
+    </tr>
+  </table>
+
+  <h2>2. Plastic Waste Partitioning & Decomposition</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Stream Category</th>
+        <th style="text-align: right;">Total Weight (g)</th>
+        <th style="text-align: right;">Total Units</th>
+        <th style="text-align: right;">Percentage Share</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Food & Canteen Stream</strong> (Chai cups, wrappers, delivery boxes, bags)</td>
+        <td style="text-align: right; font-weight: bold;">${catSummary['Food & Canteen'].weight} g</td>
+        <td style="text-align: right;">${catSummary['Food & Canteen'].count} items</td>
+        <td style="text-align: right;">${Math.round((catSummary['Food & Canteen'].weight / totalWeightGrams) * 100)}%</td>
+      </tr>
+      <tr>
+        <td><strong>Hostel & Stationery Stream</strong> (Shampoo sachets, pens, tubes, parcel mailers)</td>
+        <td style="text-align: right; font-weight: bold;">${catSummary['Hostel & Stationery'].weight} g</td>
+        <td style="text-align: right;">${catSummary['Hostel & Stationery'].count} items</td>
+        <td style="text-align: right;">${Math.round((catSummary['Hostel & Stationery'].weight / totalWeightGrams) * 100)}%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Itemized Inventory & Standard Weights</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Plastic Item Type</th>
+        <th>Category</th>
+        <th style="text-align: center;">Logged Qty</th>
+        <th style="text-align: right;">Unit Wt. (g)</th>
+        <th style="text-align: right;">Total Weight (g)</th>
+        <th style="text-align: right;">% Share</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${sortedSummary.map(item => `
+        <tr>
+          <td><strong>${item.name}</strong></td>
+          <td>${item.category}</td>
+          <td style="text-align: center;">${item.count}</td>
+          <td style="text-align: right;">${item.unitWeight}g</td>
+          <td style="text-align: right; font-weight: bold;">${item.totalGrams}g</td>
+          <td style="text-align: right;">${((item.totalGrams / totalWeightGrams) * 100).toFixed(1)}%</td>
+        </tr>
+      `).join('')}
+    </tbody>
+  </table>
+
+  <h2>4. Zero-Budget Student Alternatives & Economic Dividends</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Habit / Culprit Item</th>
+        <th>Zero-Budget Student Alternative</th>
+        <th style="text-align: center;">Status</th>
+        <th style="text-align: right;">Plastic Saved (kg/yr)</th>
+        <th style="text-align: right;">Money Saved (₹/yr)</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${STUDENT_SWAPS.map(swap => {
+        const isActive = !!activeSwaps[swap.id];
+        return `
+          <tr>
+            <td><strong>${swap.title}</strong></td>
+            <td>${swap.greenAlternative}</td>
+            <td style="text-align: center;">${isActive ? '<strong>Adopted</strong>' : 'Proposed'}</td>
+            <td style="text-align: right; font-weight: bold;">${swap.weightSavedPerYearKg} kg</td>
+            <td style="text-align: right; font-weight: bold;">₹${swap.moneySavedPerYearInr}</td>
+          </tr>
+        `;
+      }).join('')}
+      <tr style="background-color: #f1f5f9; font-weight: bold;">
+        <td colspan="3">Total Student Savings (Active Swaps)</td>
+        <td style="text-align: right; color: #1e3a2f;">${totalPlasticSavedPerStudent.toFixed(2)} kg / student</td>
+        <td style="text-align: right; color: #b45309;">₹${totalMoneySavedPerStudent.toLocaleString()} / student</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. Institutional Campus Policy Recommendations</h2>
+  <ol>
+    <li>
+      <strong>Canteen Chai Cup Mandate:</strong> Institute a ₹1 discount for students bringing personal steel mugs, or transition vendor contracts exclusively to biodegradable terracotta kulhads.
+    </li>
+    <li>
+      <strong>Campus-Wide Single-Use PET Bottle Phase-Out at Food Courts:</strong> Capitalizing on the university's established RO hydration coolers across academic blocks and hostels, prohibit the retail sale of &lt;1L single-use plastic water bottles at food courts and campus tuck shops, mandating personal reusable steel bottles or returnable glass alternatives.
+    </li>
+    <li>
+      <strong>Campus Convenience Store Zero-Waste Refill Stations & Solid Bar Promotion:</strong> Mandate campus tuck shops and convenience stores to stock zero-packaging solid shampoo bars and bulk liquid refill stations (pay-by-weight into student bottles), eliminating the high volume of non-recyclable multi-layer plastic (MLP) sachets discarded in hostels.
+    </li>
+    <li>
+      <strong>Green Packaging in Canteen Takeaways:</strong> Mandate a strict "Bring Your Own Dabba" policy for evening takeout meals and ban non-recyclable multi-layer food parcel containers.
+    </li>
+  </ol>
+
+  <div class="footer-box">
+    <table style="border: none;">
+      <tr style="border: none;">
+        <td style="border: none; width: 50%;">
+          <p><strong>Group Leader Declaration:</strong></p>
+          <br/><br/>
+          <p>____________________________________<br/>
+          ${members[0]?.name || 'Student Lead'} (Group Leader)<br/>
+          Roll No: ${members[0]?.roll || '24ENV014'}</p>
+        </td>
+        <td style="border: none; width: 50%; text-align: right;">
+          <p><strong>Faculty Evaluator Evaluation & Signature:</strong></p>
+          <br/><br/>
+          <p>____________________________________<br/>
+          Course Instructor, Dept. of Environmental Studies<br/>
+          Score: _______ / 25 Marks</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>`;
+
+    const blob = new Blob(['\ufeff', docHTML], { type: 'application/msword' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `EVS_Activity3_Plastic_Audit_Report.doc`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="space-y-6">
       
@@ -98,12 +323,23 @@ export default function PrintReportView({
             <Download className="w-4 h-4 text-slate-600" />
             <span>Export Raw CSV</span>
           </button>
+
+          <button
+            onClick={handleDownloadDoc}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#1E3A2F] hover:bg-[#142720] text-white shadow-md transition-all hover:scale-105"
+            title="Download formatted Microsoft Word Document (.doc)"
+          >
+            <FileDown className="w-4 h-4 text-emerald-300" />
+            <span>Download Word Report (.doc)</span>
+          </button>
+
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#1E3A2F] hover:bg-[#142720] text-white shadow-md transition-all hover:scale-105"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition-all"
+            title="Print or Save as PDF"
           >
-            <Printer className="w-4 h-4" />
-            <span>Print / Save as PDF</span>
+            <Printer className="w-4 h-4 text-slate-600" />
+            <span className="hidden sm:inline">Print / PDF</span>
           </button>
         </div>
       </div>
@@ -321,10 +557,10 @@ export default function PrintReportView({
               <strong>Canteen Chai Cup Mandate:</strong> Institute a ₹1 discount for students bringing personal steel mugs, or transition vendor contracts exclusively to biodegradable terracotta kulhads.
             </li>
             <li>
-              <strong>Campus RO Hydration Network:</strong> Display weekly microbiological and TDS lab test certificates beside all campus RO coolers to eliminate student hesitation and curb packaged Kinley/Bisleri sales.
+              <strong>Campus-Wide Single-Use PET Bottle Phase-Out at Food Courts:</strong> Capitalizing on the university's established RO hydration coolers across academic blocks and hostels, prohibit the retail sale of &lt;1L single-use plastic water bottles at food courts and campus tuck shops, mandating personal reusable steel bottles or returnable glass alternatives.
             </li>
             <li>
-              <strong>Hostel Bulk Dispensary Program:</strong> Introduce hostel welfare committee procurement of bulk 5L refill cans for shampoo, handwash, and detergent to eliminate sachet generation.
+              <strong>Campus Convenience Store Zero-Waste Refill Stations & Solid Bar Promotion:</strong> Mandate campus tuck shops and convenience stores to stock zero-packaging solid shampoo bars and bulk liquid refill stations (pay-by-weight into student bottles), eliminating the high volume of non-recyclable multi-layer plastic (MLP) sachets discarded in hostels.
             </li>
             <li>
               <strong>Green Packaging in Canteen Takeaways:</strong> Mandate a strict "Bring Your Own Dabba" policy for evening takeout meals and ban non-recyclable multi-layer food parcel containers.
