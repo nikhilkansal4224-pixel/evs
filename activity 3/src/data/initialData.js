@@ -1,8 +1,10 @@
 export const INITIAL_MEMBERS = [
   { 
     id: 'm1', 
-    name: 'Atul Raushan', 
-    roll: '24ENV014', 
+    name: 'Atul', 
+    roll: '26010102834', 
+    sap: '590036858',
+    batch: '3',
     role: 'Group Coordinator, Daily Data Tracking, Calculations & Report Compilation',
     week1Count: 11,
     week2Count: 15
@@ -10,15 +12,19 @@ export const INITIAL_MEMBERS = [
   { 
     id: 'm2', 
     name: 'Nikhil', 
-    roll: '24ENV029', 
+    roll: '26010101498', 
+    sap: '590039697',
+    batch: '3',
     role: 'Collection Box Management, Resin Code Sorting & Photo Documentation',
     week1Count: 15,
     week2Count: 15
   },
   { 
     id: 'm3', 
-    name: 'Arnav Gulati', 
-    roll: '24ENV042', 
+    name: 'Aarnav Gulati', 
+    roll: '26010102692', 
+    sap: '590038927',
+    batch: '3',
     role: 'UPI Payment Cross-Checking, Campus Pricing Audit & Daily Carry Kit Setup',
     week1Count: 20,
     week2Count: 15

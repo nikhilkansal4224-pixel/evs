@@ -20,9 +20,9 @@ export default function PortalHome({
   onSelectActivity, 
   onOpenEvaluation,
   members = [
-    { id: 'm1', name: 'Atul Raushan', roll: '24ENV001', role: 'Group Coordinator / Tracking & Report' },
-    { id: 'm2', name: 'Nikhil', roll: '24ENV002', role: 'Collection Box & Resin Code Sorting' },
-    { id: 'm3', name: 'Arnav Gulati', roll: '24ENV003', role: 'UPI Payment Audit & Pricing Analysis' },
+    { id: 'm1', name: 'Nikhil', roll: '26010101498', role: 'Waste & Strata Lead (SAP: 590039697)' },
+    { id: 'm2', name: 'Atul', roll: '26010102834', role: 'Group Coordinator (SAP: 590036858)' },
+    { id: 'm3', name: 'Aarnav Gulati', roll: '26010102692', role: 'UPI Audit & Economics (SAP: 590038927)' },
   ]
 }) {
   return (

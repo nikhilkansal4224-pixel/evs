@@ -20,7 +20,7 @@ const LOCAL_STORAGE_LOGS_KEY = 'campus_plastic_tracker_logs_v3';
 const LOCAL_STORAGE_MEMBERS_KEY = 'campus_plastic_tracker_members_v3';
 const LOCAL_STORAGE_SWAPS_KEY = 'campus_plastic_tracker_swaps_v3';
 const LOCAL_STORAGE_SEED_KEY = 'campus_plastic_tracker_seed_v3';
-const CURRENT_SEED_VERSION = 'real_upes_week1_v3.3';
+const CURRENT_SEED_VERSION = 'real_upes_week1_v3.4';
 
 export default function App() {
   // Navigation tab: 'audit' | 'analytics' | 'simulator' | 'report'

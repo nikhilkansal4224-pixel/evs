@@ -21,12 +21,30 @@ export default function MasterEvaluationModal({ isOpen, onClose }) {
   };
 
   const members = [
-    { name: 'Atul Raushan', roll: '24ENV014', role: 'Group Coordinator / Tracking & Report Compilation' },
-    { name: 'Nikhil', roll: '24ENV029', role: 'Collection Box Management & Resin Code Sorting' },
-    { name: 'Arnav Gulati', roll: '24ENV042', role: 'UPI Payment Cross-Checking & Pricing Audit' },
+    { name: 'Nikhil', roll: '26010101498', sap: '590039697', batch: '3', role: 'Waste & Strata Lead / Resin Code Sorting' },
+    { name: 'Atul', roll: '26010102834', sap: '590036858', batch: '3', role: 'Group Coordinator / Tracking & Report Compilation' },
+    { name: 'Aarnav Gulati', roll: '26010102692', sap: '590038927', batch: '3', role: 'UPI Payment Audit & Economics Lead' },
   ];
 
-  const handleDownloadDoc = () => {
+  const handleDownloadDoc = async () => {
+    try {
+      const response = await fetch('/EVS_Complete_Project_Report_Activity_3_and_4.doc');
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `EVS_Complete_Project_Report_Activity_3_and_4.doc`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        return;
+      }
+    } catch (e) {
+      console.warn('Falling back to client-generated doc', e);
+    }
+
     const docHTML = `<!DOCTYPE html>
 <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
 <head>
