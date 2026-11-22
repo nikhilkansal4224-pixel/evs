@@ -27,7 +27,10 @@ export default function AuditLogger({
   onDeleteLog, 
   onOpenLogModal,
   totalWeightGrams,
-  totalItems
+  totalItems,
+  activeWeek = 'week1',
+  onLoadWeek1,
+  onLoadWeek2
 }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMember, setSelectedMember] = useState('ALL');
@@ -77,8 +80,13 @@ export default function AuditLogger({
 
   const getItemIcon = (name) => {
     switch (name) {
+      case 'PET water bottles': 
+      case 'PET Water Bottles': return <Droplet className="w-4 h-4 text-blue-600" />;
+      case 'Chips packets':
+      case 'Chips Packets': return <Cookie className="w-4 h-4 text-orange-600" />;
+      case 'Chocolate wrappers':
+      case 'Chocolate Wrappers': return <Sparkles className="w-4 h-4 text-purple-600" />;
       case 'Disposable tea cups': return <Coffee className="w-4 h-4 text-amber-700" />;
-      case 'PET water bottles': return <Droplet className="w-4 h-4 text-blue-600" />;
       case 'Snack wrappers': return <Cookie className="w-4 h-4 text-orange-600" />;
       case 'Food delivery containers': return <Box className="w-4 h-4 text-red-600" />;
       case 'Polythene bags': return <ShoppingBag className="w-4 h-4 text-yellow-700" />;
@@ -134,41 +142,98 @@ export default function AuditLogger({
           </div>
         </div>
 
-        {/* Quick-Add 1-Click Bar */}
-        <div className="mt-4 pt-3 border-t border-emerald-800/60 flex flex-wrap items-center gap-2">
-          <span className="text-xs text-emerald-200 font-medium flex items-center gap-1">
-            ⚡ Quick-Add Common Item:
-          </span>
-          <button
-            onClick={() => handleQuickLog('Disposable tea cups', 'Food & Canteen')}
-            className="px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 hover:bg-white/20 text-emerald-100 transition-colors flex items-center gap-1"
-          >
-            + 1 Chai Cup (4.5g)
-          </button>
-          <button
-            onClick={() => handleQuickLog('Snack wrappers', 'Food & Canteen')}
-            className="px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 hover:bg-white/20 text-emerald-100 transition-colors flex items-center gap-1"
-          >
-            + 1 Snack Wrapper (4g)
-          </button>
-          <button
-            onClick={() => handleQuickLog('PET water bottles', 'Food & Canteen')}
-            className="px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 hover:bg-white/20 text-emerald-100 transition-colors flex items-center gap-1"
-          >
-            + 1 PET Bottle (18g)
-          </button>
-          <button
-            onClick={() => handleQuickLog('Shampoo/detergent sachets', 'Hostel & Stationery')}
-            className="px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 hover:bg-white/20 text-emerald-100 transition-colors flex items-center gap-1"
-          >
-            + 1 Sachet (2.5g)
-          </button>
-          <button
-            onClick={() => handleQuickLog('Ballpoint pens', 'Hostel & Stationery')}
-            className="px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 hover:bg-white/20 text-emerald-100 transition-colors flex items-center gap-1"
-          >
-            + 1 Ballpoint Pen (6g)
-          </button>
+        {/* Quick-Add 1-Click Bar & Preset Buttons */}
+        <div className="mt-4 pt-3 border-t border-emerald-800/60 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs text-emerald-200 font-medium flex items-center gap-1">
+              ⚡ Quick-Add Audited Item:
+            </span>
+            <button
+              onClick={() => handleQuickLog('PET Water Bottles', 'Food & Canteen')}
+              className="px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 hover:bg-white/20 text-emerald-100 transition-colors flex items-center gap-1"
+            >
+              + 1 PET Bottle (18g)
+            </button>
+            <button
+              onClick={() => handleQuickLog('Chips Packets', 'Food & Canteen')}
+              className="px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 hover:bg-white/20 text-emerald-100 transition-colors flex items-center gap-1"
+            >
+              + 1 Chips Packet (4g)
+            </button>
+            <button
+              onClick={() => handleQuickLog('Chocolate Wrappers', 'Food & Canteen')}
+              className="px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 hover:bg-white/20 text-emerald-100 transition-colors flex items-center gap-1"
+            >
+              + 1 Chocolate Wrapper (2.5g)
+            </button>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onLoadWeek1}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                activeWeek === 'week1'
+                  ? 'bg-emerald-500 text-slate-900 border-emerald-400 shadow-sm'
+                  : 'bg-emerald-950/60 text-emerald-200 border-emerald-700/60 hover:bg-emerald-900'
+              }`}
+            >
+              Reset to Week 1 Audit (46 items)
+            </button>
+            <button
+              onClick={onLoadWeek2}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                activeWeek === 'week2'
+                  ? 'bg-amber-400 text-slate-900 border-amber-300 shadow-sm'
+                  : 'bg-emerald-950/60 text-amber-200 border-amber-700/60 hover:bg-amber-950/80'
+              }`}
+            >
+              Load Week 2 Challenge (45 items)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Week 1 vs Week 2 Field Audit Comparison Strip */}
+      <div className="bg-gradient-to-r from-slate-900 via-[#1E3A2F] to-slate-900 text-white rounded-2xl p-4 border border-emerald-800/60 shadow-sm">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs">
+          <div className="space-y-0.5">
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-emerald-300 uppercase tracking-wider text-[11px]">
+                {activeWeek === 'week1' ? '📊 Current: Week 1 Baseline Audit' : '🚀 Current: Week 2 Carry Kit Challenge'}
+              </span>
+              <span className="px-2 py-0.5 bg-emerald-800/80 text-emerald-200 rounded text-[10px] font-semibold">
+                UPES Field Study
+              </span>
+            </div>
+            <p className="text-slate-300 text-[11px]">
+              {activeWeek === 'week1'
+                ? 'Week 1 Baseline: 46 items (432.0 g) across 18 UPI payments = 2.6 items/payment. Bottles constituted 79.2% of total plastic mass.'
+                : 'Week 2 Challenge: 45 items (263.5 g, -39.0% total mass) across 32 UPI payments = 1.4 items/payment (-45.0% per payment!). Bottles cut by 57.9%.'}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4 bg-black/40 px-3 py-2 rounded-xl border border-emerald-700/40 font-mono text-[11px] whitespace-nowrap">
+            <div>
+              <span className="text-slate-400 block text-[10px]">Bottle Count</span>
+              <span className={activeWeek === 'week2' ? 'text-emerald-300 font-bold' : 'text-white font-bold'}>
+                {activeWeek === 'week2' ? '8 (-57.9%)' : '19 (41.3%)'}
+              </span>
+            </div>
+            <div className="h-6 w-px bg-slate-700" />
+            <div>
+              <span className="text-slate-400 block text-[10px]">Total Mass</span>
+              <span className={activeWeek === 'week2' ? 'text-amber-300 font-bold' : 'text-white font-bold'}>
+                {activeWeek === 'week2' ? '263.5 g (-39%)' : '432.0 g'}
+              </span>
+            </div>
+            <div className="h-6 w-px bg-slate-700" />
+            <div>
+              <span className="text-slate-400 block text-[10px]">UPI Intensity</span>
+              <span className="text-teal-300 font-bold">
+                {activeWeek === 'week2' ? '1.4 items/txn' : '2.6 items/txn'}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 

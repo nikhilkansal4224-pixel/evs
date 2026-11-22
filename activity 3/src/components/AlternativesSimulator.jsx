@@ -143,104 +143,223 @@ export default function AlternativesSimulator({
         </div>
       </div>
 
-      {/* Comparison Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {STUDENT_SWAPS.map((swap) => {
-          const isActive = !!activeSwaps[swap.id];
+      {/* Comparison Grid Split into Part A (Backpack Kit) and Part B (Hostel Room Kit) */}
+      <div className="space-y-6">
+        {/* Part A: Backpack Kit (Always Carried) */}
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-3 py-1 rounded-lg text-xs font-bold bg-[#1E3A2F] text-white tracking-wide uppercase">
+              Part A — Backpack Kit (Always Carried)
+            </span>
+            <span className="text-xs text-slate-500">
+              Low-cost daily carry essentials (₹250–400 total) carried to lectures & canteen
+            </span>
+          </div>
 
-          return (
-            <div
-              key={swap.id}
-              className={`rounded-2xl p-5 border transition-all relative flex flex-col justify-between ${
-                isActive
-                  ? 'bg-white border-[#1E3A2F] shadow-md ring-1 ring-[#1E3A2F]/20'
-                  : 'bg-slate-50/70 border-slate-200/80 opacity-75 hover:opacity-100 hover:bg-white'
-              }`}
-            >
-              <div>
-                
-                {/* Card Header & Toggle Switch */}
-                <div className="flex items-start justify-between gap-3 mb-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {STUDENT_SWAPS.filter(s => s.category.includes('Part A')).map((swap) => {
+              const isActive = !!activeSwaps[swap.id];
+
+              return (
+                <div
+                  key={swap.id}
+                  className={`rounded-2xl p-5 border transition-all relative flex flex-col justify-between ${
+                    isActive
+                      ? 'bg-white border-[#1E3A2F] shadow-md ring-1 ring-[#1E3A2F]/20'
+                      : 'bg-slate-50/70 border-slate-200/80 opacity-75 hover:opacity-100 hover:bg-white'
+                  }`}
+                >
                   <div>
-                    <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 mb-1">
-                      {swap.category}
-                    </span>
-                    <h3 className="text-sm font-bold text-slate-900 leading-snug">
-                      {swap.title}
-                    </h3>
+                    {/* Card Header & Toggle Switch */}
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <div>
+                        <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 mb-1">
+                          {swap.category}
+                        </span>
+                        <h3 className="text-sm font-bold text-slate-900 leading-snug">
+                          {swap.title}
+                        </h3>
+                      </div>
+
+                      {/* Toggle Button */}
+                      <label className="relative inline-flex items-center cursor-pointer flex-shrink-0">
+                        <input
+                          type="checkbox"
+                          checked={isActive}
+                          onChange={() => onToggleSwap(swap.id)}
+                          className="sr-only peer"
+                        />
+                        <div className="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1E3A2F]"></div>
+                      </label>
+                    </div>
+
+                    {/* Culprit vs Alternative */}
+                    <div className="space-y-2.5 my-3 text-xs">
+                      <div className="bg-rose-50/70 border border-rose-200/80 rounded-xl p-2.5">
+                        <span className="block font-bold text-rose-900 text-[11px] mb-0.5">
+                          ❌ Current Single-Use Habit:
+                        </span>
+                        <p className="text-slate-700 leading-relaxed">
+                          {swap.currentHabit}
+                        </p>
+                      </div>
+
+                      <div className="bg-emerald-50/80 border border-emerald-200/90 rounded-xl p-2.5">
+                        <span className="block font-bold text-[#1E3A2F] text-[11px] mb-0.5">
+                          ✅ Zero-Budget / Low-Cost Swap:
+                        </span>
+                        <p className="text-slate-800 leading-relaxed font-medium">
+                          {swap.greenAlternative}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Eco & Feasibility Note */}
+                    <div className="text-[11px] text-slate-500 mb-3 italic">
+                      "{swap.impactNote}"
+                    </div>
                   </div>
 
-                  {/* Toggle Button */}
-                  <label className="relative inline-flex items-center cursor-pointer flex-shrink-0">
-                    <input
-                      type="checkbox"
-                      checked={isActive}
-                      onChange={() => onToggleSwap(swap.id)}
-                      className="sr-only peer"
-                    />
-                    <div className="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1E3A2F]"></div>
-                  </label>
-                </div>
+                  {/* Card Footer: Metrics & Feasibility */}
+                  <div className="pt-3 border-t border-slate-100 space-y-2">
+                    <div className="grid grid-cols-2 gap-2 text-center">
+                      <div className="bg-slate-50 p-2 rounded-lg border border-slate-200/60">
+                        <span className="block text-[10px] text-slate-500 uppercase font-semibold">
+                          Plastic Saved
+                        </span>
+                        <span className="text-xs font-extrabold text-[#1E3A2F]">
+                          -{swap.weightSavedPerYearKg} kg/yr
+                        </span>
+                      </div>
 
-                {/* Culprit vs Alternative */}
-                <div className="space-y-2.5 my-3 text-xs">
-                  <div className="bg-rose-50/70 border border-rose-200/80 rounded-xl p-2.5">
-                    <span className="block font-bold text-rose-900 text-[11px] mb-0.5">
-                      ❌ Current Single-Use Habit:
-                    </span>
-                    <p className="text-slate-700 leading-relaxed">
-                      {swap.currentHabit}
-                    </p>
-                  </div>
+                      <div className="bg-slate-50 p-2 rounded-lg border border-slate-200/60">
+                        <span className="block text-[10px] text-slate-500 uppercase font-semibold">
+                          Student Savings
+                        </span>
+                        <span className="text-xs font-extrabold text-amber-700">
+                          +₹{swap.moneySavedPerYearInr}/yr
+                        </span>
+                      </div>
+                    </div>
 
-                  <div className="bg-emerald-50/80 border border-emerald-200/90 rounded-xl p-2.5">
-                    <span className="block font-bold text-[#1E3A2F] text-[11px] mb-0.5">
-                      ✅ Zero-Budget / Low-Cost Swap:
-                    </span>
-                    <p className="text-slate-800 leading-relaxed font-medium">
-                      {swap.greenAlternative}
-                    </p>
+                    <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                      <span>Payback: <strong className="text-slate-700">{swap.paybackPeriod}</strong></span>
+                      <span className="text-emerald-700 font-semibold">{swap.feasibility}</span>
+                    </div>
                   </div>
                 </div>
+              );
+            })}
+          </div>
+        </div>
 
-                {/* Eco & Feasibility Note */}
-                <div className="text-[11px] text-slate-500 mb-3 italic">
-                  "{swap.impactNote}"
-                </div>
+        {/* Part B: Hostel Room Kit (Planned Food Runs) */}
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-3 py-1 rounded-lg text-xs font-bold bg-amber-700 text-white tracking-wide uppercase">
+              Part B — Hostel Room Kit (Planned Food Runs)
+            </span>
+            <span className="text-xs text-slate-500">
+              Hostel dorm reusable kit (₹240–450 total) for takeaways, evening chai, and bulk snacks
+            </span>
+          </div>
 
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {STUDENT_SWAPS.filter(s => s.category.includes('Part B')).map((swap) => {
+              const isActive = !!activeSwaps[swap.id];
 
-              {/* Card Footer: Metrics & Feasibility */}
-              <div className="pt-3 border-t border-slate-100 space-y-2">
-                <div className="grid grid-cols-2 gap-2 text-center">
-                  <div className="bg-slate-50 p-2 rounded-lg border border-slate-200/60">
-                    <span className="block text-[10px] text-slate-500 uppercase font-semibold">
-                      Plastic Saved
-                    </span>
-                    <span className="text-xs font-extrabold text-[#1E3A2F]">
-                      -{swap.weightSavedPerYearKg} kg/yr
-                    </span>
+              return (
+                <div
+                  key={swap.id}
+                  className={`rounded-2xl p-5 border transition-all relative flex flex-col justify-between ${
+                    isActive
+                      ? 'bg-white border-[#1E3A2F] shadow-md ring-1 ring-[#1E3A2F]/20'
+                      : 'bg-slate-50/70 border-slate-200/80 opacity-75 hover:opacity-100 hover:bg-white'
+                  }`}
+                >
+                  <div>
+                    {/* Card Header & Toggle Switch */}
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <div>
+                        <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 mb-1">
+                          {swap.category}
+                        </span>
+                        <h3 className="text-sm font-bold text-slate-900 leading-snug">
+                          {swap.title}
+                        </h3>
+                      </div>
+
+                      {/* Toggle Button */}
+                      <label className="relative inline-flex items-center cursor-pointer flex-shrink-0">
+                        <input
+                          type="checkbox"
+                          checked={isActive}
+                          onChange={() => onToggleSwap(swap.id)}
+                          className="sr-only peer"
+                        />
+                        <div className="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1E3A2F]"></div>
+                      </label>
+                    </div>
+
+                    {/* Culprit vs Alternative */}
+                    <div className="space-y-2.5 my-3 text-xs">
+                      <div className="bg-rose-50/70 border border-rose-200/80 rounded-xl p-2.5">
+                        <span className="block font-bold text-rose-900 text-[11px] mb-0.5">
+                          ❌ Current Single-Use Habit:
+                        </span>
+                        <p className="text-slate-700 leading-relaxed">
+                          {swap.currentHabit}
+                        </p>
+                      </div>
+
+                      <div className="bg-emerald-50/80 border border-emerald-200/90 rounded-xl p-2.5">
+                        <span className="block font-bold text-[#1E3A2F] text-[11px] mb-0.5">
+                          ✅ Zero-Budget / Low-Cost Swap:
+                        </span>
+                        <p className="text-slate-800 leading-relaxed font-medium">
+                          {swap.greenAlternative}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Eco & Feasibility Note */}
+                    <div className="text-[11px] text-slate-500 mb-3 italic">
+                      "{swap.impactNote}"
+                    </div>
                   </div>
 
-                  <div className="bg-slate-50 p-2 rounded-lg border border-slate-200/60">
-                    <span className="block text-[10px] text-slate-500 uppercase font-semibold">
-                      Student Savings
-                    </span>
-                    <span className="text-xs font-extrabold text-amber-700">
-                      +₹{swap.moneySavedPerYearInr}/yr
-                    </span>
+                  {/* Card Footer: Metrics & Feasibility */}
+                  <div className="pt-3 border-t border-slate-100 space-y-2">
+                    <div className="grid grid-cols-2 gap-2 text-center">
+                      <div className="bg-slate-50 p-2 rounded-lg border border-slate-200/60">
+                        <span className="block text-[10px] text-slate-500 uppercase font-semibold">
+                          Plastic Saved
+                        </span>
+                        <span className="text-xs font-extrabold text-[#1E3A2F]">
+                          -{swap.weightSavedPerYearKg} kg/yr
+                        </span>
+                      </div>
+
+                      <div className="bg-slate-50 p-2 rounded-lg border border-slate-200/60">
+                        <span className="block text-[10px] text-slate-500 uppercase font-semibold">
+                          Student Savings
+                        </span>
+                        <span className="text-xs font-extrabold text-amber-700">
+                          +₹{swap.moneySavedPerYearInr}/yr
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                      <span>Payback: <strong className="text-slate-700">{swap.paybackPeriod}</strong></span>
+                      <span className="text-emerald-700 font-semibold">{swap.feasibility}</span>
+                    </div>
                   </div>
                 </div>
-
-                <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
-                  <span>Payback: <strong className="text-slate-700">{swap.paybackPeriod}</strong></span>
-                  <span className="text-emerald-700 font-semibold">{swap.feasibility}</span>
-                </div>
-              </div>
-
-            </div>
-          );
-        })}
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* Action Plan Implementation Guide Table */}

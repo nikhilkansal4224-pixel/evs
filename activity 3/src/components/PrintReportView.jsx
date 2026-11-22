@@ -134,9 +134,9 @@ export default function PrintReportView({
     </tbody>
   </table>
 
-  <h2>1. Executive Summary & Key Findings</h2>
+  <h2>1. Executive Summary & Field Audit Findings</h2>
   <p>
-    Over a rigorous 7-day monitoring period (14 Nov 2026 – 20 Nov 2026), our ${members.length}-member student cohort tracked every single-use plastic item consumed during lectures, canteen meals, hostel living, and campus commutes. Standard item weights were verified using laboratory analytical scale balances and life-cycle assessment (LCA) literature.
+    Over a rigorous field audit conducted across academic blocks, canteens, and hostels, our 3-member student team logged every single-use plastic item consumed during daily routines. Standard item weights were determined using laboratory analytical scales and resin code verification (#1 PET: 18.0 g/bottle, Multilayer Film: 4.0 g/chips packet, 2.5 g/chocolate wrapper).
   </p>
   <table class="kpi-table">
     <tr>
@@ -161,6 +161,62 @@ export default function PrintReportView({
         <span style="font-size: 9pt; color: #64748b;">${topCulprit?.percentage}% share</span>
       </td>
     </tr>
+  </table>
+
+  <h3>Week 1 Baseline vs. Week 2 Carry Kit Challenge Comparative Analysis</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric / Indicator</th>
+        <th>Week 1 Baseline Audit</th>
+        <th>Week 2 Carry Kit Challenge</th>
+        <th>Delta / Environmental Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Total Plastic Count</strong></td>
+        <td>46 items (Atul 11, Nikhil 15, Arnav 20)</td>
+        <td>45 items (Atul 15, Nikhil 15, Arnav 15)</td>
+        <td>-1 item (-2.2%)</td>
+      </tr>
+      <tr>
+        <td><strong>Total Plastic Mass</strong></td>
+        <td><strong>432.0 grams</strong></td>
+        <td><strong>263.5 grams</strong></td>
+        <td><strong style="color: #1e3a2f;">-168.5 g (-39.0% plastic mass reduction!)</strong></td>
+      </tr>
+      <tr>
+        <td><strong>PET Water Bottles (#1)</strong></td>
+        <td>19 bottles (342.0 g, 79.2% of mass)</td>
+        <td>8 bottles (144.0 g, 54.6% of mass)</td>
+        <td><strong style="color: #1e3a2f;">-11 bottles (-57.9% reduction)</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Chips Packets (MLP #7)</strong></td>
+        <td>15 packets (60.0 g)</td>
+        <td>18 packets (72.0 g)</td>
+        <td>+3 packets (+20.0%)</td>
+      </tr>
+      <tr>
+        <td><strong>Chocolate Wrappers (MLP #7)</strong></td>
+        <td>12 wrappers (30.0 g)</td>
+        <td>19 wrappers (47.5 g)</td>
+        <td>+7 wrappers (+58.3%)</td>
+      </tr>
+      <tr>
+        <td><strong>UPI Transactions Audited</strong></td>
+        <td>18 UPI payment records</td>
+        <td>32 UPI payment records</td>
+        <td>Higher transaction frequency</td>
+      </tr>
+      <tr>
+        <td><strong>Plastic Items per Payment</strong></td>
+        <td><strong>2.6 items / transaction</strong></td>
+        <td><strong>1.4 items / transaction</strong></td>
+        <td><strong style="color: #1e3a2f;">-45.0% plastic density per purchase</strong></td>
+      </tr>
+    </tbody>
   </table>
 
   <h2>2. Plastic Waste Partitioning & Decomposition</h2>
@@ -215,15 +271,19 @@ export default function PrintReportView({
     </tbody>
   </table>
 
-  <h2>4. Zero-Budget Student Alternatives & Economic Dividends</h2>
+  <h2>4. Student "Daily Carry Kit" Action Simulator & Economic Dividends</h2>
+  <p>
+    Our field data demonstrates that carrying a structured two-part reusable kit drastically cuts plastic weight and saves substantial pocket money:
+    <strong>Part A: Backpack Kit</strong> (Always carried to classes and canteen) and <strong>Part B: Hostel Room Kit</strong> (Reusable gear for evening dining runs and bulk snack storage).
+  </p>
   <table>
     <thead>
       <tr>
-        <th>Habit / Culprit Item</th>
-        <th>Zero-Budget Student Alternative</th>
-        <th style="text-align: center;">Status</th>
-        <th style="text-align: right;">Plastic Saved (kg/yr)</th>
-        <th style="text-align: right;">Money Saved (₹/yr)</th>
+        <th>Kit & Culprit Item</th>
+        <th>Practical Student Alternative</th>
+        <th>Cost Range & Payback</th>
+        <th style="text-align: right;">Plastic Saved</th>
+        <th style="text-align: right;">Annual Savings</th>
       </tr>
     </thead>
     <tbody>
@@ -231,16 +291,16 @@ export default function PrintReportView({
         const isActive = !!activeSwaps[swap.id];
         return `
           <tr>
-            <td><strong>${swap.title}</strong></td>
+            <td><strong>${swap.title}</strong><br/><span style="font-size: 9pt; color: #64748b;">${swap.category}</span></td>
             <td>${swap.greenAlternative}</td>
-            <td style="text-align: center;">${isActive ? '<strong>Adopted</strong>' : 'Proposed'}</td>
-            <td style="text-align: right; font-weight: bold;">${swap.weightSavedPerYearKg} kg</td>
-            <td style="text-align: right; font-weight: bold;">₹${swap.moneySavedPerYearInr}</td>
+            <td>${swap.paybackPeriod} (${swap.feasibility})</td>
+            <td style="text-align: right; font-weight: bold; color: #1e3a2f;">${swap.weightSavedPerYearKg} kg/yr</td>
+            <td style="text-align: right; font-weight: bold; color: #b45309;">₹${swap.moneySavedPerYearInr}/yr</td>
           </tr>
         `;
       }).join('')}
       <tr style="background-color: #f1f5f9; font-weight: bold;">
-        <td colspan="3">Total Student Savings (Active Swaps)</td>
+        <td colspan="3">Combined Student Dividend (Active Swaps)</td>
         <td style="text-align: right; color: #1e3a2f;">${totalPlasticSavedPerStudent.toFixed(2)} kg / student</td>
         <td style="text-align: right; color: #b45309;">₹${totalMoneySavedPerStudent.toLocaleString()} / student</td>
       </tr>
@@ -425,6 +485,55 @@ export default function PrintReportView({
               <span className="block text-[10px] text-slate-500">{topCulprit?.percentage}% of total items</span>
             </div>
           </div>
+
+          {/* Week 1 Baseline vs Week 2 Challenge Findings Table */}
+          <div className="mb-4 bg-slate-50/70 border border-slate-200 rounded-xl p-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
+              Week 1 Baseline vs. Week 2 Carry Kit Challenge Field Comparison
+            </h4>
+            <table className="w-full text-left text-xs border border-slate-200">
+              <thead>
+                <tr className="bg-slate-100 text-slate-700 font-semibold">
+                  <th className="py-1.5 px-2.5 border border-slate-200">Metric / Parameter</th>
+                  <th className="py-1.5 px-2.5 border border-slate-200">Week 1 Baseline Audit</th>
+                  <th className="py-1.5 px-2.5 border border-slate-200">Week 2 Challenge</th>
+                  <th className="py-1.5 px-2.5 border border-slate-200 text-right">Net Impact / Delta</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                <tr>
+                  <td className="py-1.5 px-2.5 border border-slate-200 font-medium">Logged Items Count</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200">46 items (Atul 11, Nikhil 15, Arnav 20)</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200">45 items (Atul 15, Nikhil 15, Arnav 15)</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200 text-right text-slate-700 font-semibold">-1 item (-2.2%)</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 px-2.5 border border-slate-200 font-medium">Total Plastic Mass</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200 font-bold">432.0 grams</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200 font-bold text-amber-700">263.5 grams</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200 text-right font-bold text-[#1E3A2F]">-168.5 g (-39.0%)</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 px-2.5 border border-slate-200 font-medium">PET Water Bottles (#1)</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200">19 bottles (342.0 g)</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200">8 bottles (144.0 g)</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200 text-right font-bold text-[#1E3A2F]">-11 bottles (-57.9%)</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 px-2.5 border border-slate-200 font-medium">Chips & Chocolate Wrappers</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200">27 wrappers (90.0 g)</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200">37 wrappers (119.5 g)</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200 text-right text-slate-700">+10 wrappers (+37%)</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 px-2.5 border border-slate-200 font-medium">UPI Payment Audits</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200">18 transactions (2.6 items/txn)</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200">32 transactions (1.4 items/txn)</td>
+                  <td className="py-1.5 px-2.5 border border-slate-200 text-right font-bold text-teal-800">-45.0% plastic/purchase</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* 2. Plastic Decomposition & Category Partitioning */}
@@ -486,23 +595,23 @@ export default function PrintReportView({
           </table>
         </div>
 
-        {/* 3. Action Simulator: Zero-Budget Student Alternatives */}
+        {/* 3. Action Simulator: Daily Carry Kit & Student Alternatives */}
         <div className="mb-6 break-inside-avoid">
           <h2 className="text-sm font-bold uppercase tracking-wider text-[#1E3A2F] border-b border-slate-200 pb-1 mb-3">
-            3. Action Simulator: Zero-Budget Student Alternatives & Economics
+            3. Action Simulator: Student "Daily Carry Kit" & Economic Dividends
           </h2>
           <p className="text-xs text-slate-700 leading-relaxed mb-3">
-            Our audit proves that single-use plastic dependency in colleges is driven by perceived convenience and micro-pricing. The following student-led swaps demonstrate that going plastic-free delivers immediate cash savings without compromising student budgets:
+            Our audit proves that single-use plastic dependency in colleges is driven by perceived convenience and micro-pricing. The student-designed <strong>Daily Carry Kit (Part A: Backpack Kit & Part B: Hostel Room Kit)</strong> demonstrates that going plastic-free delivers immediate cash savings without compromising student budgets:
           </p>
 
           <table className="w-full text-left text-xs border border-slate-200">
             <thead>
               <tr className="bg-slate-100 text-slate-700 font-semibold">
-                <th className="py-2 px-3 border border-slate-200">Habit / Culprit Item</th>
-                <th className="py-2 px-3 border border-slate-200">Zero-Budget Alternative</th>
-                <th className="py-2 px-3 border border-slate-200 text-center">Status</th>
-                <th className="py-2 px-3 border border-slate-200 text-right">Plastic Saved (kg/yr)</th>
-                <th className="py-2 px-3 border border-slate-200 text-right">Money Saved (₹/yr)</th>
+                <th className="py-2 px-3 border border-slate-200">Kit / Culprit Item</th>
+                <th className="py-2 px-3 border border-slate-200">Green Reusable Alternative</th>
+                <th className="py-2 px-3 border border-slate-200">Cost & Payback</th>
+                <th className="py-2 px-3 border border-slate-200 text-right">Plastic Saved</th>
+                <th className="py-2 px-3 border border-slate-200 text-right">Money Saved</th>
               </tr>
             </thead>
             <tbody>
@@ -510,24 +619,22 @@ export default function PrintReportView({
                 const isActive = !!activeSwaps[swap.id];
                 return (
                   <tr key={swap.id} className={isActive ? 'bg-emerald-50/30' : 'bg-white'}>
-                    <td className="py-1.5 px-3 border border-slate-200 font-semibold text-slate-900">
-                      {swap.title}
+                    <td className="py-1.5 px-3 border border-slate-200">
+                      <span className="font-semibold text-slate-900 block">{swap.title}</span>
+                      <span className="text-[10px] text-slate-500 font-medium">{swap.category}</span>
                     </td>
                     <td className="py-1.5 px-3 border border-slate-200 text-slate-700">
                       {swap.greenAlternative}
                     </td>
-                    <td className="py-1.5 px-3 border border-slate-200 text-center font-bold">
-                      {isActive ? (
-                        <span className="text-emerald-700">Adopted</span>
-                      ) : (
-                        <span className="text-slate-400">Proposed</span>
-                      )}
+                    <td className="py-1.5 px-3 border border-slate-200 text-slate-600 text-[11px]">
+                      <span className="block font-medium">{swap.paybackPeriod}</span>
+                      <span className="text-emerald-700 font-semibold text-[10px]">{swap.feasibility}</span>
                     </td>
                     <td className="py-1.5 px-3 border border-slate-200 text-right font-mono font-bold text-emerald-800">
-                      {swap.weightSavedPerYearKg} kg
+                      {swap.weightSavedPerYearKg} kg/yr
                     </td>
                     <td className="py-1.5 px-3 border border-slate-200 text-right font-mono font-bold text-amber-800">
-                      ₹{swap.moneySavedPerYearInr}
+                      ₹{swap.moneySavedPerYearInr}/yr
                     </td>
                   </tr>
                 );

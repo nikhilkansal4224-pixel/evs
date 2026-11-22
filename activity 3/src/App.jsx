@@ -10,6 +10,7 @@ import MemberModal from './components/MemberModal';
 import { 
   INITIAL_MEMBERS, 
   INITIAL_AUDIT_LOGS, 
+  WEEK2_CHALLENGE_LOGS,
   ITEM_DEFINITIONS, 
   STUDENT_SWAPS,
   PROJECT_METADATA 
@@ -18,14 +19,37 @@ import {
 const LOCAL_STORAGE_LOGS_KEY = 'campus_plastic_tracker_logs_v3';
 const LOCAL_STORAGE_MEMBERS_KEY = 'campus_plastic_tracker_members_v3';
 const LOCAL_STORAGE_SWAPS_KEY = 'campus_plastic_tracker_swaps_v3';
+const LOCAL_STORAGE_SEED_KEY = 'campus_plastic_tracker_seed_v3';
+const CURRENT_SEED_VERSION = 'real_upes_week1_v3.3';
 
 export default function App() {
   // Navigation tab: 'audit' | 'analytics' | 'simulator' | 'report'
   const [activeTab, setActiveTab] = useState('audit');
 
-  // Members state
+  // Active week dataset tracking: 'week1' (46 items) | 'week2' (45 items)
+  const [activeWeek, setActiveWeek] = useState('week1');
+
+  // Helper to check if stored data needs to be seeded with real group data
+  const isSeedOutdated = () => {
+    try {
+      const seed = localStorage.getItem(LOCAL_STORAGE_SEED_KEY);
+      const savedMembers = localStorage.getItem(LOCAL_STORAGE_MEMBERS_KEY);
+      if (seed !== CURRENT_SEED_VERSION) return true;
+      if (!savedMembers || !savedMembers.includes('Atul Raushan')) return true;
+      return false;
+    } catch {
+      return true;
+    }
+  };
+
+  // Members state (seeds Atul, Nikhil, Arnav if outdated or uninitialized)
   const [members, setMembers] = useState(() => {
     try {
+      if (isSeedOutdated()) {
+        localStorage.setItem(LOCAL_STORAGE_MEMBERS_KEY, JSON.stringify(INITIAL_MEMBERS));
+        localStorage.setItem(LOCAL_STORAGE_SEED_KEY, CURRENT_SEED_VERSION);
+        return INITIAL_MEMBERS;
+      }
       const saved = localStorage.getItem(LOCAL_STORAGE_MEMBERS_KEY);
       return saved ? JSON.parse(saved) : INITIAL_MEMBERS;
     } catch {
@@ -33,9 +57,14 @@ export default function App() {
     }
   });
 
-  // Logs state
+  // Logs state (seeds 46 items Week 1 audit if outdated or uninitialized)
   const [logs, setLogs] = useState(() => {
     try {
+      if (isSeedOutdated()) {
+        localStorage.setItem(LOCAL_STORAGE_LOGS_KEY, JSON.stringify(INITIAL_AUDIT_LOGS));
+        localStorage.setItem(LOCAL_STORAGE_SEED_KEY, CURRENT_SEED_VERSION);
+        return INITIAL_AUDIT_LOGS;
+      }
       const saved = localStorage.getItem(LOCAL_STORAGE_LOGS_KEY);
       return saved ? JSON.parse(saved) : INITIAL_AUDIT_LOGS;
     } catch {
@@ -170,18 +199,28 @@ export default function App() {
     );
   };
 
+  // Week Presets
+  const handleLoadWeek1 = () => {
+    setLogs(INITIAL_AUDIT_LOGS);
+    setActiveWeek('week1');
+  };
+
+  const handleLoadWeek2 = () => {
+    setLogs(WEEK2_CHALLENGE_LOGS);
+    setActiveWeek('week2');
+  };
+
   const handleResetData = () => {
-    if (window.confirm('Reset all audit logs and member names to the original pre-loaded 7-day college dataset?')) {
+    if (window.confirm('Reset all audit logs and member names to Week 1 Baseline Audit (46 items)?')) {
       setMembers(INITIAL_MEMBERS);
       setLogs(INITIAL_AUDIT_LOGS);
+      setActiveWeek('week1');
       const defaults = {};
       STUDENT_SWAPS.forEach((s) => {
         defaults[s.id] = s.defaultActive;
       });
       setActiveSwaps(defaults);
-      localStorage.removeItem(LOCAL_STORAGE_LOGS_KEY);
-      localStorage.removeItem(LOCAL_STORAGE_MEMBERS_KEY);
-      localStorage.removeItem(LOCAL_STORAGE_SWAPS_KEY);
+      localStorage.setItem(LOCAL_STORAGE_SEED_KEY, CURRENT_SEED_VERSION);
     }
   };
 
@@ -216,17 +255,19 @@ export default function App() {
       'Date',
       'Student Name',
       'Category',
-      'Item Type',
+      'Plastic Item Type',
       'Quantity',
       'Unit Weight (g)',
       'Total Weight (g)',
-      'Location Note'
+      'Resin Code',
+      'Location / Note'
     ];
 
     const rows = logs.map((l) => {
       const def = ITEM_DEFINITIONS[l.itemType];
       const unitW = def ? def.weightGrams : 5.0;
       const totalW = (l.quantity * unitW).toFixed(1);
+      const resin = def ? def.resinCode : 'Other';
       return [
         `"${l.id}"`,
         `"${l.day}"`,
@@ -237,6 +278,7 @@ export default function App() {
         l.quantity,
         unitW,
         totalW,
+        `"${resin}"`,
         `"${(l.location || '').replace(/"/g, '""')}"`
       ];
     });
@@ -245,7 +287,7 @@ export default function App() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `evs_campus_plastic_audit_data.csv`);
+    link.setAttribute('download', `evs_activity3_${activeWeek}_audit_data.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -264,6 +306,9 @@ export default function App() {
           onExportCsv={handleExportCsv}
           totalItems={totalItems}
           totalWeightGrams={totalWeightGrams}
+          activeWeek={activeWeek}
+          onLoadWeek1={handleLoadWeek1}
+          onLoadWeek2={handleLoadWeek2}
         />
 
         {/* Main Content Area */}
@@ -279,6 +324,7 @@ export default function App() {
               campusPopulation={PROJECT_METADATA.campusStudentPopulation}
               activeSavingsKg={activeSavingsKg}
               activeSavingsInr={activeSavingsInr}
+              activeWeek={activeWeek}
             />
           )}
 
@@ -292,6 +338,9 @@ export default function App() {
               onOpenLogModal={() => setIsLogModalOpen(true)}
               totalWeightGrams={totalWeightGrams}
               totalItems={totalItems}
+              activeWeek={activeWeek}
+              onLoadWeek1={handleLoadWeek1}
+              onLoadWeek2={handleLoadWeek2}
             />
           )}
 
@@ -302,6 +351,7 @@ export default function App() {
               members={members}
               totalWeightGrams={totalWeightGrams}
               totalItems={totalItems}
+              activeWeek={activeWeek}
             />
           )}
 
@@ -326,6 +376,7 @@ export default function App() {
               topCulprit={topCulprit}
               onBack={() => setActiveTab('audit')}
               onExportCsv={handleExportCsv}
+              activeWeek={activeWeek}
             />
           )}
 
@@ -354,11 +405,11 @@ export default function App() {
             <span className="font-semibold text-slate-800">
               Campus Plastic Footprint Tracker & Action Simulator
             </span>{' '}
-            • {PROJECT_METADATA.course} ({PROJECT_METADATA.activityNo})
+            • {PROJECT_METADATA.course} ({PROJECT_METADATA.activityNo}) • {PROJECT_METADATA.institution}
           </div>
           <div className="flex items-center gap-4">
-            <span>Prepared for LMS Evaluation & Live Demonstration</span>
-            <span className="font-mono text-emerald-800 font-bold">100% Client-Side • Zero API Keys</span>
+            <span>UPES Dehradun Case Study</span>
+            <span className="font-mono text-emerald-800 font-bold">100% Client-Side • LocalStorage Active</span>
           </div>
         </div>
       </footer>

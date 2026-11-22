@@ -19,7 +19,10 @@ export default function Navbar({
   onResetData, 
   onExportCsv,
   totalItems,
-  totalWeightGrams 
+  totalWeightGrams,
+  activeWeek = 'week1',
+  onLoadWeek1,
+  onLoadWeek2
 }) {
   return (
     <header className="sticky top-0 z-30 bg-[#FBFBFA]/95 backdrop-blur-md border-b border-[#E3E8E3] shadow-sm">
@@ -66,10 +69,36 @@ export default function Navbar({
 
           {/* Action buttons (Right) */}
           <div className="flex flex-wrap items-center gap-2">
+            {/* Week 1 vs Week 2 Toggle Pill */}
+            <div className="inline-flex items-center p-0.5 rounded-lg bg-slate-200/80 border border-slate-300 text-xs">
+              <button
+                onClick={onLoadWeek1}
+                className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
+                  activeWeek === 'week1'
+                    ? 'bg-[#1E3A2F] text-white shadow-sm'
+                    : 'text-slate-700 hover:text-slate-900'
+                }`}
+                title="Load Week 1 Baseline Audit (46 items, 432g)"
+              >
+                Week 1 (46)
+              </button>
+              <button
+                onClick={onLoadWeek2}
+                className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
+                  activeWeek === 'week2'
+                    ? 'bg-amber-600 text-white shadow-sm'
+                    : 'text-slate-700 hover:text-slate-900'
+                }`}
+                title="Load Week 2 Challenge Data (45 items, 263.5g, -57.9% bottles)"
+              >
+                Week 2 Challenge (45)
+              </button>
+            </div>
+
             <button
               onClick={onOpenMembers}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 shadow-sm transition-colors"
-              title="View & Edit 4 Group Member Details"
+              title="View & Edit 3 Group Member Details"
             >
               <Users className="w-3.5 h-3.5 text-slate-600" />
               <span>Group Roster</span>
@@ -87,10 +116,10 @@ export default function Navbar({
             <button
               onClick={onResetData}
               className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-red-700 hover:bg-red-50 border border-slate-200 transition-colors"
-              title="Reset to 7-Day Pre-loaded Dataset"
+              title="Reset to Week 1 Audit Dataset (46 items)"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">Reset Sample</span>
+              <span className="hidden md:inline">Reset</span>
             </button>
 
             <button

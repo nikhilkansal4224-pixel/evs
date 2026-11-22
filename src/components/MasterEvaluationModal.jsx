@@ -21,9 +21,9 @@ export default function MasterEvaluationModal({ isOpen, onClose }) {
   };
 
   const members = [
-    { name: 'Aarav Sharma', roll: '24ENV014', role: 'Group Leader / Hostelite' },
-    { name: 'Priya Patel', roll: '24ENV029', role: 'Day Scholar / Commuter' },
-    { name: 'Rohan Verma', roll: '24ENV042', role: 'Hostelite (Block C)' },
+    { name: 'Atul Raushan', roll: '24ENV001', role: 'Group Coordinator / Tracking & Report Compilation' },
+    { name: 'Nikhil', roll: '24ENV002', role: 'Collection Box Management & Resin Code Sorting' },
+    { name: 'Arnav Gulati', roll: '24ENV003', role: 'UPI Payment Cross-Checking & Pricing Audit' },
   ];
 
   const handleDownloadDoc = () => {

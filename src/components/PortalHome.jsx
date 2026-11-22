@@ -20,9 +20,9 @@ export default function PortalHome({
   onSelectActivity, 
   onOpenEvaluation,
   members = [
-    { id: 'm1', name: 'Aarav Sharma', roll: '24ENV014', role: 'Group Leader / Hostelite' },
-    { id: 'm2', name: 'Priya Patel', roll: '24ENV029', role: 'Day Scholar / Commuter' },
-    { id: 'm3', name: 'Rohan Verma', roll: '24ENV042', role: 'Hostelite (Block C)' },
+    { id: 'm1', name: 'Atul Raushan', roll: '24ENV001', role: 'Group Coordinator / Tracking & Report' },
+    { id: 'm2', name: 'Nikhil', roll: '24ENV002', role: 'Collection Box & Resin Code Sorting' },
+    { id: 'm3', name: 'Arnav Gulati', roll: '24ENV003', role: 'UPI Payment Audit & Pricing Analysis' },
   ]
 }) {
   return (
@@ -87,7 +87,7 @@ export default function PortalHome({
           </div>
           <div>
             <span className="block text-[11px] text-slate-400 font-semibold uppercase">Plastic Monitored</span>
-            <span className="text-lg font-bold text-emerald-400 font-mono">58 Field Logs (7 Days)</span>
+            <span className="text-lg font-bold text-emerald-400 font-mono">46 Field Logs (Week 1 Audit)</span>
           </div>
           <div>
             <span className="block text-[11px] text-slate-400 font-semibold uppercase">Water Recovery Yield</span>
