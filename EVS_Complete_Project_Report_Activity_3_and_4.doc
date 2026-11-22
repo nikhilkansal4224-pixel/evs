@@ -1,0 +1,940 @@
+﻿<!DOCTYPE html>
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+  <meta charset='utf-8'>
+  <title>EVS Semester IV Master Portfolio: Activity 3 and Activity 4 Complete Project Report</title>
+  <!--[if gte mso 9]>
+  <xml>
+  <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+  </w:WordDocument>
+  </xml>
+  <![endif]-->
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 25mm 20mm 25mm 20mm;
+      mso-header-margin: 36pt;
+      mso-footer-margin: 36pt;
+      mso-paper-source: 0;
+    }
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+    h1 {
+      color: #0f172a;
+      font-size: 20pt;
+      font-weight: bold;
+      border-bottom: 2.5pt solid #1e3a2f;
+      padding-bottom: 6pt;
+      margin-top: 15pt;
+      margin-bottom: 8pt;
+      text-transform: uppercase;
+    }
+    h2 {
+      color: #1e3a2f;
+      font-size: 14pt;
+      font-weight: bold;
+      border-bottom: 1.5pt solid #0d9488;
+      padding-bottom: 4pt;
+      margin-top: 20pt;
+      margin-bottom: 8pt;
+      page-break-after: avoid;
+    }
+    h3 {
+      color: #0f766e;
+      font-size: 12pt;
+      font-weight: bold;
+      margin-top: 14pt;
+      margin-bottom: 4pt;
+      page-break-after: avoid;
+    }
+    p, li {
+      font-size: 10.5pt;
+      line-height: 1.55;
+      text-align: justify;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10pt 0 14pt 0;
+      font-size: 9.5pt;
+    }
+    th {
+      background-color: #1e3a2f;
+      color: #ffffff;
+      border: 1pt solid #cbd5e1;
+      padding: 6pt 8pt;
+      font-weight: bold;
+      text-align: left;
+    }
+    td {
+      border: 1pt solid #cbd5e1;
+      padding: 5pt 8pt;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+    .kpi-table td {
+      background-color: #f1f5f9;
+      text-align: center;
+      padding: 8pt;
+      border: 1pt solid #94a3b8;
+    }
+    .kpi-num {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #0f172a;
+    }
+    .kpi-sub {
+      font-size: 8.5pt;
+      color: #475569;
+    }
+    .callout-box {
+      background-color: #f0fdf4;
+      border-left: 4pt solid #15803d;
+      padding: 8pt 12pt;
+      margin: 10pt 0;
+      font-size: 10pt;
+    }
+    .callout-box-blue {
+      background-color: #f0f9ff;
+      border-left: 4pt solid #0284c7;
+      padding: 8pt 12pt;
+      margin: 10pt 0;
+      font-size: 10pt;
+    }
+    .callout-box-amber {
+      background-color: #fffbeb;
+      border-left: 4pt solid #d97706;
+      padding: 8pt 12pt;
+      margin: 10pt 0;
+      font-size: 10pt;
+    }
+    .footer-box {
+      margin-top: 30pt;
+      border-top: 1.5pt solid #64748b;
+      padding-top: 10pt;
+      page-break-inside: avoid;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2pt 6pt;
+      border-radius: 4pt;
+      font-size: 8.5pt;
+      font-weight: bold;
+    }
+    .badge-green { background-color: #dcfce7; color: #166534; }
+    .badge-amber { background-color: #fef3c7; color: #92400e; }
+    .badge-blue { background-color: #e0f2fe; color: #075985; }
+  </style>
+</head>
+<body>
+
+  <!-- COVER / HEADER -->
+  <div style="text-align: center; border-bottom: 3pt double #1e3a2f; padding-bottom: 15pt; margin-bottom: 20pt;">
+    <p style="font-size: 11pt; font-weight: bold; color: #0f766e; text-transform: uppercase; letter-spacing: 1.5pt; margin: 0;">
+      UNIVERSITY DEPARTMENT OF ENVIRONMENTAL STUDIES &amp; SUSTAINABILITY ENGINEERING
+    </p>
+    <p style="font-size: 9.5pt; color: #64748b; margin: 2pt 0 10pt 0;">
+      COURSE CODE: EVS-401 • SEMESTER IV PROJECT PORTFOLIO REPORT
+    </p>
+    <h1 style="border: none; margin: 8pt 0; font-size: 22pt; color: #0f172a;">
+      CAMPUS CIRCULAR SUSTAINABILITY &amp; NATURE-BASED ENGINEERING
+    </h1>
+    <p style="font-size: 12pt; font-weight: bold; color: #1e3a2f; margin: 4pt 0;">
+      Integrated Empirical Investigation: Single-Use Plastic Waste Audit &amp; Constructed Wetland Wastewater Treatment
+    </p>
+    <p style="font-size: 10pt; color: #475569; margin-top: 4pt;">
+      Academic Session: 2026–2027 • Final Evaluated Submission Date: 22 November 2026
+    </p>
+  </div>
+
+  <!-- TEAM DETAILS -->
+  <h2>Student Investigation Team (Group of 3 Cohort)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">No.</th>
+        <th style="width: 25%;">Student Name</th>
+        <th style="width: 20%;">Enrollment / Roll No.</th>
+        <th style="width: 47%;">Designated Project Responsibilities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>Atul Raushan</strong></td>
+        <td>24ENV014</td>
+        <td><strong>Group Coordinator</strong>: Daily field audit compilation, life-cycle standard weight calculations, statistical waste decomposition &amp; final documentation.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Nikhil</strong></td>
+        <td>24ENV029</td>
+        <td><strong>Waste &amp; Engineering Lead</strong>: Physical collection box supervision, polymer resin code classification (#1 PET, #7 MLP), and wetland cross-section strata modeling.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Arnav Gulati</strong></td>
+        <td>24ENV042</td>
+        <td><strong>Field Audit &amp; Economics Lead</strong>: UPI digital receipt verification, campus store pricing audit, break-even payback analysis &amp; Daily Carry Kit deployment.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- MASTER EXECUTIVE SUMMARY -->
+  <h2>Master Executive Summary</h2>
+  <p>
+    Higher education institutions in India represent intense ecological micro-cities generating massive volumes of non-biodegradable municipal solid waste and greywater effluent. This consolidated project report provides an end-to-end investigation combining empirical source characterization with actionable, low-cost engineering solutions across two mandatory coursework mandates:
+  </p>
+  <ul>
+    <li>
+      <strong>Activity No. 3 (Track Your Plastic Consumption &amp; Develop Practical Alternatives to Single-Use Plastics):</strong> 
+      A real-world 7-day empirical audit tracking 46 single-use plastic events (432.0 g) across our 3-member student cohort, followed by a Week 2 "Daily Carry Kit" intervention. Results confirmed a <strong>39.0% total plastic mass reduction</strong> (from 432.0 g to 263.5 g) and a <strong>57.9% reduction in virgin PET water bottles</strong>, while digital payment analysis revealed that plastic generation density decreased from <strong>2.6 items per UPI transaction to 1.4 items per transaction (-45.0%)</strong>.
+    </li>
+    <li>
+      <strong>Activity No. 4 (Build a Nature-Based Solution for Wastewater Treatment):</strong> 
+      Design, hydraulic sizing, and process modeling of a decentralized, zero-chemical nature-based wastewater treatment system ("EcoFlow") tailored for campus hostel greywater and canteen effluent. Featuring a 4-stage natural treatment train (Grit &amp; Grease Trap &rarr; Bio-Sand &amp; Charcoal Adsorption &rarr; Horizontal Subsurface Flow Constructed Wetland planted with <em>Canna indica</em>, <em>Vetiver</em>, and <em>Typha</em> &rarr; Solar UV Polishing Weir), the system achieves a <strong>95% BOD reduction</strong> (from 160 mg/L to 8 mg/L) and <strong>94% daily freshwater recovery yield</strong> compliant with Central Pollution Control Board (CPCB) non-potable campus reuse standards.
+    </li>
+  </ul>
+
+  <!-- UNIFIED MASTER KPI GRID -->
+  <table class="kpi-table">
+    <tr>
+      <td style="width: 25%;">
+        <span class="kpi-sub">WEEK 1 SOLID PLASTIC AUDIT</span><br/>
+        <span class="kpi-num" style="color: #1e3a2f;">432.0 g</span><br/>
+        <span class="kpi-sub">46 items logged / 3 students</span>
+      </td>
+      <td style="width: 25%;">
+        <span class="kpi-sub">WEEK 2 INTERVENTION MASS</span><br/>
+        <span class="kpi-num" style="color: #059669;">263.5 g</span><br/>
+        <span class="kpi-sub">-39.0% mass reduction achieved</span>
+      </td>
+      <td style="width: 25%;">
+        <span class="kpi-sub">NATURE WETLAND RECOVERY</span><br/>
+        <span class="kpi-num" style="color: #0d9488;">94% Yield</span><br/>
+        <span class="kpi-sub">4,230 L/day clean recycled water</span>
+      </td>
+      <td style="width: 25%;">
+        <span class="kpi-sub">CPCB WATER QUALITY</span><br/>
+        <span class="kpi-num" style="color: #15803d;">Grade A Safe</span><br/>
+        <span class="kpi-sub">BOD &lt; 10 mg/L (95% drop)</span>
+      </td>
+    </tr>
+  </table>
+
+  <div class="page-break"></div>
+
+  <!-- ========================================================================= -->
+  <!-- PART 1: ACTIVITY NO. 3 -->
+  <!-- ========================================================================= -->
+  <div style="background-color: #1e3a2f; color: #ffffff; padding: 6pt 10pt; margin-top: 10pt; border-radius: 4pt;">
+    <h1 style="color: #ffffff; border: none; margin: 0; font-size: 16pt;">
+      PART I: ACTIVITY NO. 3 — CAMPUS PLASTIC CONSUMPTION AUDIT &amp; ACTION SIMULATOR
+    </h1>
+    <p style="color: #a7f3d0; margin: 2pt 0 0 0; font-size: 10pt;">
+      Course Mandate: "Track your plastic consumption for a week and develop practical alternatives to single-use plastics"
+    </p>
+  </div>
+
+  <h2>1.1 Project Overview &amp; Research Problem</h2>
+  <p>
+    Single-use plastics (SUPs) dominate Indian higher education campuses due to micro-pricing, rapid retail transactions, and convenience-driven student habits. Canteen meals, packaged hydration bottles, takeaway parcels, and hostel personal care sachets create vast volumes of unsegregated, contaminated plastic waste. In alignment with India's <em>Plastic Waste Management Rules (2022 Amendment)</em> and the nationwide ban on select single-use plastics, our student investigation team conducted an empirical 7-day characterization audit followed by a structured behavioral intervention challenge across our campus.
+  </p>
+
+  <h2>1.2 Scientific Methodology &amp; Quality Control</h2>
+  <p>
+    To eliminate reporting bias and self-censorship, our team implemented a three-tier tracking methodology:
+  </p>
+  <ol>
+    <li>
+      <strong>Daily Physical Separation &amp; Collection Box:</strong> Dedicated dry segregation bins were maintained in hostel quarters and day bags. All empty packaging generated between morning lectures, dining halls, and evening study sessions was retained rather than discarded in campus trash cans.
+    </li>
+    <li>
+      <strong>Analytical Scale Mass Measurement &amp; Polymer Resin Verification:</strong> Standard weights were determined using a 0.1g laboratory electronic precision balance. Resin identification codes (RIC) were documented:
+      <ul>
+        <li><strong>Resin Code #1 (PET):</strong> 500ml/1L mineral water bottles = <strong>18.0 g/unit</strong> (100% recyclable if unsoiled).</li>
+        <li><strong>Resin Code #7 (Multilayer Plastic Film / BOPP):</strong> Fused aluminum-plastic metallized snack pouches (Lays, Kurkure) = <strong>4.0 g/unit</strong> (Non-recyclable).</li>
+        <li><strong>Resin Code #7 (Flexible Metallized Film):</strong> Chocolate wrappers (Dairy Milk, KitKat) = <strong>2.5 g/unit</strong> (Non-recyclable).</li>
+      </ul>
+    </li>
+    <li>
+      <strong>UPI Payment Receipt Cross-Auditing:</strong> Every logged plastic item was cross-referenced against daily Unified Payments Interface (UPI) transaction records (Google Pay / Paytm) at campus vendors to ensure zero missed transactions.
+    </li>
+  </ol>
+
+  <h2>1.3 Baseline Field Audit Findings (Week 1 Dataset — 46 Items, 432.0 g)</h2>
+  <p>
+    Over the 7-day baseline monitoring period (Day 1 to Day 7), our 3-member team generated a total of <strong>46 single-use plastic items</strong> weighing an aggregate <strong>432.0 grams</strong>. The itemized distribution was as follows:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Plastic Item Type</th>
+        <th>Polymer Classification</th>
+        <th>Recyclability</th>
+        <th style="text-align: center;">Logged Qty</th>
+        <th style="text-align: right;">Unit Wt. (g)</th>
+        <th style="text-align: right;">Total Mass (g)</th>
+        <th style="text-align: right;">Mass % Share</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>PET Water Bottles</strong></td>
+        <td>Polyethylene Terephthalate (#1 PET)</td>
+        <td><span class="badge badge-green">Recyclable</span></td>
+        <td style="text-align: center; font-weight: bold;">19</td>
+        <td style="text-align: right;">18.0 g</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a2f;">342.0 g</td>
+        <td style="text-align: right; font-weight: bold; color: #b45309;">79.2%</td>
+      </tr>
+      <tr>
+        <td><strong>Chips Packets</strong></td>
+        <td>Metallized Biaxially Oriented PP (#7 MLP)</td>
+        <td><span class="badge badge-amber">Non-Recyclable</span></td>
+        <td style="text-align: center; font-weight: bold;">15</td>
+        <td style="text-align: right;">4.0 g</td>
+        <td style="text-align: right; font-weight: bold;">60.0 g</td>
+        <td style="text-align: right;">13.9%</td>
+      </tr>
+      <tr>
+        <td><strong>Chocolate Wrappers</strong></td>
+        <td>Multilayer Flexible Film (#7 MLP)</td>
+        <td><span class="badge badge-amber">Non-Recyclable</span></td>
+        <td style="text-align: center; font-weight: bold;">12</td>
+        <td style="text-align: right;">2.5 g</td>
+        <td style="text-align: right; font-weight: bold;">30.0 g</td>
+        <td style="text-align: right;">6.9%</td>
+      </tr>
+      <tr style="background-color: #f1f5f9; font-weight: bold;">
+        <td colspan="3">Baseline Audit Aggregate (7 Days)</td>
+        <td style="text-align: center;">46 units</td>
+        <td style="text-align: right;">—</td>
+        <td style="text-align: right; color: #1e3a2f;">432.0 g</td>
+        <td style="text-align: right;">100.0%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Daily Consumption Trajectory Across Group Members (Week 1)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Audit Day</th>
+        <th style="text-align: center;">Atul Raushan</th>
+        <th style="text-align: center;">Nikhil</th>
+        <th style="text-align: center;">Arnav Gulati</th>
+        <th style="text-align: center;">Daily Total Items</th>
+        <th style="text-align: right;">Daily Weight (g)</th>
+        <th>Field Observations &amp; Primary Locations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Day 1</strong></td>
+        <td style="text-align: center;">2</td>
+        <td style="text-align: center;">4</td>
+        <td style="text-align: center;">7</td>
+        <td style="text-align: center; font-weight: bold;">13</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a2f;">131.5 g</td>
+        <td>High mobility day; 6 bottles purchased between classes and library.</td>
+      </tr>
+      <tr>
+        <td><strong>Day 2</strong></td>
+        <td style="text-align: center;">1</td>
+        <td style="text-align: center;">2</td>
+        <td style="text-align: center;">2</td>
+        <td style="text-align: center; font-weight: bold;">5</td>
+        <td style="text-align: right;">46.5 g</td>
+        <td>Hostel study routine; lower canteen visits; 2 bottles and snack packets.</td>
+      </tr>
+      <tr>
+        <td><strong>Day 3</strong></td>
+        <td style="text-align: center;">1</td>
+        <td style="text-align: center;">1</td>
+        <td style="text-align: center;">4</td>
+        <td style="text-align: center; font-weight: bold;">6</td>
+        <td style="text-align: right;">38.0 g</td>
+        <td>Evening group assignment session; snack packets dominated.</td>
+      </tr>
+      <tr>
+        <td><strong>Day 4</strong></td>
+        <td style="text-align: center;">1</td>
+        <td style="text-align: center;">3</td>
+        <td style="text-align: center;">2</td>
+        <td style="text-align: center; font-weight: bold;">6</td>
+        <td style="text-align: right;">61.5 g</td>
+        <td>Lab coursework; 3 bottles purchased during outdoor practicals.</td>
+      </tr>
+      <tr>
+        <td><strong>Day 5</strong></td>
+        <td style="text-align: center;">1</td>
+        <td style="text-align: center;">1</td>
+        <td style="text-align: center;">1</td>
+        <td style="text-align: center; font-weight: bold;">3</td>
+        <td style="text-align: right;">23.0 g</td>
+        <td>Reduced lecture schedule; minimal packaged purchases.</td>
+      </tr>
+      <tr>
+        <td><strong>Day 6</strong></td>
+        <td style="text-align: center;">5</td>
+        <td style="text-align: center;">4</td>
+        <td style="text-align: center;">4</td>
+        <td style="text-align: center; font-weight: bold;">13</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a2f;">131.5 g</td>
+        <td>Weekend sports &amp; campus events; bottle consumption peaked (6 bottles).</td>
+      </tr>
+      <tr>
+        <td><strong>Day 7</strong></td>
+        <td style="text-align: center;">0</td>
+        <td style="text-align: center;">0</td>
+        <td style="text-align: center;">0</td>
+        <td style="text-align: center; font-weight: bold;">0</td>
+        <td style="text-align: right;">0.0 g</td>
+        <td>Hostel rest day; meals taken at mess; zero external purchases.</td>
+      </tr>
+      <tr style="background-color: #f1f5f9; font-weight: bold;">
+        <td>Total</td>
+        <td style="text-align: center;">11 (23.9%)</td>
+        <td style="text-align: center;">15 (32.6%)</td>
+        <td style="text-align: center;">20 (43.5%)</td>
+        <td style="text-align: center;">46 units</td>
+        <td style="text-align: right; color: #1e3a2f;">432.0 g</td>
+        <td>Average: 144.0 g per student / week</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout-box">
+    <strong>Key Baseline Finding:</strong> While packaged food wrappers represented 58.7% of all individual plastic units logged (27 units), <strong>PET water bottles accounted for an overwhelming 79.2% of total plastic weight (342.0 g)</strong>. Therefore, eliminating packaged water bottles through reusable alternatives is the single highest-leverage intervention for campus plastic reduction.
+  </div>
+
+  <h2>1.4 Week 1 Baseline vs. Week 2 "Daily Carry Kit" Challenge Comparison</h2>
+  <p>
+    During Week 2, our team deployed the student-designed <strong>"Daily Carry Kit"</strong> (stainless steel bottle, cloth jhola, and reusable cutlery). A direct empirical comparison reveals the transformative potential of simple habit swaps:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Evaluation Metric / Dimension</th>
+        <th>Week 1 Baseline Audit</th>
+        <th>Week 2 Carry Kit Challenge</th>
+        <th style="text-align: right;">Empirical Impact / Delta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Total Plastic Count</strong></td>
+        <td>46 units (Atul 11, Nikhil 15, Arnav 20)</td>
+        <td>45 units (Atul 15, Nikhil 15, Arnav 15)</td>
+        <td style="text-align: right; font-weight: bold;">-1 unit (-2.2%)</td>
+      </tr>
+      <tr>
+        <td><strong>Total Plastic Mass</strong></td>
+        <td><strong>432.0 grams</strong></td>
+        <td><strong>263.5 grams</strong></td>
+        <td style="text-align: right; font-weight: bold; color: #15803d;">-168.5 g (-39.0% mass reduction!)</td>
+      </tr>
+      <tr>
+        <td><strong>PET Water Bottles (#1 PET)</strong></td>
+        <td>19 bottles (342.0 g, 79.2% mass)</td>
+        <td>8 bottles (144.0 g, 54.6% mass)</td>
+        <td style="text-align: right; font-weight: bold; color: #15803d;">-11 bottles (-57.9% reduction)</td>
+      </tr>
+      <tr>
+        <td><strong>Chips Packets (#7 MLP)</strong></td>
+        <td>15 packets (60.0 g)</td>
+        <td>18 packets (72.0 g)</td>
+        <td style="text-align: right; color: #b45309;">+3 packets (+20.0%)</td>
+      </tr>
+      <tr>
+        <td><strong>Chocolate Wrappers (#7 MLP)</strong></td>
+        <td>12 wrappers (30.0 g)</td>
+        <td>19 wrappers (47.5 g)</td>
+        <td style="text-align: right; color: #b45309;">+7 wrappers (+58.3%)</td>
+      </tr>
+      <tr>
+        <td><strong>UPI Transactions Audited</strong></td>
+        <td>18 UPI payment records</td>
+        <td>32 UPI payment records</td>
+        <td style="text-align: right;">+14 micro-purchases</td>
+      </tr>
+      <tr>
+        <td><strong>Plastic Density per Purchase</strong></td>
+        <td><strong>2.6 items / transaction</strong></td>
+        <td><strong>1.4 items / transaction</strong></td>
+        <td style="text-align: right; font-weight: bold; color: #0284c7;">-45.0% plastic density per purchase</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout-box-blue">
+    <strong>UPI Payment Correlation Analysis:</strong> During Week 2, despite higher transaction frequency (32 micro-payments vs 18 in Week 1 due to academic exam week confectionery purchases), our plastic mass dropped from 432.0g to 263.5g. The plastic density per payment fell from 2.6 items to 1.4 items, proving that carrying a steel water bottle successfully decoupled daily student transactions from heavy plastic mass generation.
+  </div>
+
+  <h2>1.5 Institutional Extrapolation Across Campus</h2>
+  <p>
+    Extrapolating these empirical results across a representative model campus of <strong>500 residential students</strong> over an academic calendar of <strong>40 active semester weeks</strong> underscores the monumental scale of institutional plastic pollution:
+  </p>
+  <ul>
+    <li><strong>Per Student Weekly Generation:</strong> 144.0 grams / week (432.0g &divide; 3 students).</li>
+    <li><strong>Per Student Annual Generation:</strong> 5.76 kg of single-use plastic per student / academic year.</li>
+    <li><strong>Campus-Wide 500-Student Annual Plastic Footprint:</strong> <strong>2,880 kg (2.88 Metric Tonnes)</strong> of single-use plastic per year.</li>
+    <li><strong>PET Bottle Equivalent:</strong> 126,600 single-use bottles discarded annually on campus grounds.</li>
+  </ul>
+
+  <h2>1.6 The "Daily Carry Kit" Action Simulator &amp; Financial Payback</h2>
+  <p>
+    Recognizing that college students operate on limited monthly pocket money, our intervention framework focuses on practical, low-cost habit swaps with rapid financial payback periods:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Kit &amp; Culprit Item</th>
+        <th>Single-Use Habit</th>
+        <th>Green Reusable Alternative</th>
+        <th>Capital Cost &amp; Payback</th>
+        <th style="text-align: right;">Annual Plastic Saved</th>
+        <th style="text-align: right;">Annual Student Savings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Part A: Backpack Kit</strong><br/><span class="kpi-sub">Always Carried</span></td>
+        <td>Buying 20 Kinley/Bisleri PET bottles weekly at canteen</td>
+        <td><strong>Reusable Stainless Steel Bottle (1 Litre)</strong> refilled at certified campus RO stations</td>
+        <td>Cost: ₹250–400<br/><strong>Breaks even after 13–20 refills</strong></td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a2f;">3.60 kg / student</td>
+        <td style="text-align: right; font-weight: bold; color: #b45309;">₹1,600 / yr</td>
+      </tr>
+      <tr>
+        <td><strong>Part A: Backpack Kit</strong><br/><span class="kpi-sub">Always Carried</span></td>
+        <td>Accepting 3-5 polythene carry bags weekly at tuck shops</td>
+        <td><strong>Foldable Cotton Cloth Bag (Jhola)</strong> kept permanently in college backpack</td>
+        <td>Cost: ₹30–60<br/><strong>Breaks even in 2 weeks</strong></td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a2f;">0.65 kg / student</td>
+        <td style="text-align: right; font-weight: bold; color: #b45309;">₹250 / yr</td>
+      </tr>
+      <tr>
+        <td><strong>Part A: Backpack Kit</strong><br/><span class="kpi-sub">Always Carried</span></td>
+        <td>Disposable plastic spoons with chaat/maggi</td>
+        <td><strong>Steel Spoon in Cloth Sleeve</strong> carried in pencil case</td>
+        <td>Cost: ₹20–40<br/><strong>Zero ongoing expense</strong></td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a2f;">0.28 kg / student</td>
+        <td style="text-align: right; font-weight: bold; color: #b45309;">₹100 / yr</td>
+      </tr>
+      <tr>
+        <td><strong>Part B: Hostel Room Kit</strong><br/><span class="kpi-sub">Planned Food Runs</span></td>
+        <td>Plastic delivery containers &amp; packaging for evening takeout</td>
+        <td><strong>Steel Tiffin Box (Dabba)</strong> handed to canteen vendor for evening meals</td>
+        <td>Cost: ₹100–200<br/><strong>Breaks even in 1 month</strong></td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a2f;">1.85 kg / student</td>
+        <td style="text-align: right; font-weight: bold; color: #b45309;">₹480 / yr</td>
+      </tr>
+      <tr>
+        <td><strong>Part B: Hostel Room Kit</strong><br/><span class="kpi-sub">Planned Food Runs</span></td>
+        <td>Disposable polypropylene chai cups (2-3 cups daily)</td>
+        <td><strong>Personal Insulated Steel Mug</strong> or terracotta kulhad</td>
+        <td>Cost: ₹60–100<br/><strong>Vendor ₹1 BYO discount</strong></td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a2f;">0.72 kg / student</td>
+        <td style="text-align: right; font-weight: bold; color: #b45309;">₹320 / yr</td>
+      </tr>
+      <tr>
+        <td><strong>Part B: Hostel Room Kit</strong><br/><span class="kpi-sub">Planned Food Runs</span></td>
+        <td>Buying multiple ₹10 small chips pouches (high plastic/snack ratio)</td>
+        <td><strong>Airtight Steel Snack Box</strong> buying bulk family packs or mess snacks</td>
+        <td>Cost: ₹80–150<br/><strong>Saves bulk retail margin</strong></td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a2f;">0.45 kg / student</td>
+        <td style="text-align: right; font-weight: bold; color: #b45309;">₹350 / yr</td>
+      </tr>
+      <tr style="background-color: #f1f5f9; font-weight: bold;">
+        <td colspan="4">Total Cumulative Student Dividend (All 6 Swaps Active)</td>
+        <td style="text-align: right; color: #15803d; font-size: 11pt;">7.55 kg / student / yr</td>
+        <td style="text-align: right; color: #b45309; font-size: 11pt;">₹3,100 / student / yr</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>1.7 Campus Policy Recommendations</h2>
+  <ol>
+    <li>
+      <strong>Certified RO Hydration Coolers:</strong> Affix weekly microbiological and TDS laboratory test certificates beside all campus RO water coolers to eliminate student hesitation regarding drinking water quality, directly curbing packaged bottle sales.
+    </li>
+    <li>
+      <strong>Canteen BYOB &amp; Dabba Incentives:</strong> Contractually mandate campus food vendors to offer a ₹1 discount for students bringing personal steel mugs for chai and a ₹5 discount for takeaway food in personal steel tiffins.
+    </li>
+    <li>
+      <strong>Hostel Bulk Dispensary Program:</strong> Introduce hostel welfare committee procurement of bulk 5L refill cans for shampoo, handwash, and detergent at hostel reception counters, eliminating high-volume multi-layer plastic sachet generation.
+    </li>
+  </ol>
+
+  <div class="page-break"></div>
+
+  <!-- ========================================================================= -->
+  <!-- PART 2: ACTIVITY NO. 4 -->
+  <!-- ========================================================================= -->
+  <div style="background-color: #0f766e; color: #ffffff; padding: 6pt 10pt; margin-top: 10pt; border-radius: 4pt;">
+    <h1 style="color: #ffffff; border: none; margin: 0; font-size: 16pt;">
+      PART II: ACTIVITY NO. 4 — ECOFLOW: NATURE-BASED WASTEWATER TREATMENT SIMULATOR
+    </h1>
+    <p style="color: #ccfbf1; margin: 2pt 0 0 0; font-size: 10pt;">
+      Course Mandate: "Build a nature-based solution for wastewater treatment"
+    </p>
+  </div>
+
+  <h2>2.1 Engineering Context &amp; Wastewater Characterization</h2>
+  <p>
+    Conventional mechanized wastewater treatment plants (e.g., Moving Bed Biofilm Reactors, MBBR, or Activated Sludge Plants, ASP) suffer from frequent motor breakdowns, high grid power consumption (0.8–1.2 kWh/m³), and expensive chemical flocculants. In contrast, <strong>Decentralized Wastewater Treatment Systems (DEWATS)</strong> leveraging <strong>Constructed Wetlands (CWs)</strong> utilize natural solar energy, physical gravity sedimentation, microbial biofilm assimilation, and botanical phytoremediation to purify water with zero chemical footprint.
+  </p>
+
+  <h3>Campus Influent Stream Characteristics</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Campus Effluent Origin</th>
+        <th style="text-align: center;">Per Capita Flow (L/day)</th>
+        <th style="text-align: right;">BOD (mg/L)</th>
+        <th style="text-align: right;">TSS (mg/L)</th>
+        <th style="text-align: right;">Turbidity (NTU)</th>
+        <th style="text-align: right;">Oil &amp; Grease (mg/L)</th>
+        <th>Key Contaminants Identified</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hostel Wing Greywater</strong> (Showers &amp; Basins)</td>
+        <td style="text-align: center;">45 L/student</td>
+        <td style="text-align: right;">160</td>
+        <td style="text-align: right;">140</td>
+        <td style="text-align: right;">85</td>
+        <td style="text-align: right;">24</td>
+        <td>Surfactants (SLS), triclosan, skin sebum, lint</td>
+      </tr>
+      <tr>
+        <td><strong>Campus Canteen &amp; Mess</strong> (Kitchen sinks)</td>
+        <td style="text-align: center;">25 L/meal</td>
+        <td style="text-align: right;">480</td>
+        <td style="text-align: right;">380</td>
+        <td style="text-align: right;">260</td>
+        <td style="text-align: right;">110</td>
+        <td>Triglycerides, vegetable oils, starch, food scraps</td>
+      </tr>
+      <tr>
+        <td><strong>Combined Campus Block</strong> (Composite)</td>
+        <td style="text-align: center;">40 L/capita</td>
+        <td style="text-align: right;">290</td>
+        <td style="text-align: right;">230</td>
+        <td style="text-align: right;">160</td>
+        <td style="text-align: right;">55</td>
+        <td>Blended personal care greywater &amp; pantry wash</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2.2 Hydraulic Design &amp; Spatial Sizing Formulation</h2>
+  <p>
+    The horizontal subsurface flow constructed wetland (HSSF-CW) was hydraulically sized according to standard environmental civil engineering design principles (Kadlec &amp; Wallace model):
+  </p>
+
+  <div class="callout-box">
+    <strong>Governing Wetland Surface Area Sizing Formula:</strong><br/>
+    <p style="font-family: monospace; font-size: 13pt; font-weight: bold; text-align: center; margin: 4pt 0;">
+      A_s = (Q &times; HRT) / (d &times; &epsilon;)
+    </p>
+    <p style="margin: 0; font-size: 9.5pt;">
+      Where:
+      <strong>Q</strong> = Design daily flow volume (4,500 L/day = 4.5 m³/day for 100 students @ 45 L/day);
+      <strong>HRT</strong> = Hydraulic Retention Time = 48 hours (2.0 days);
+      <strong>d</strong> = Effective gravel bed depth = 0.60 meters;
+      <strong>&epsilon;</strong> = Void ratio / porosity of washed crushed basalt gravel = 0.38 (38%).
+    </p>
+  </div>
+
+  <h3>Calculated Spatial Dimensions for 100-Student Hostel Wing:</h3>
+  <ul>
+    <li><strong>Required Wetland Surface Area (A_s):</strong> (4.5 &times; 2.0) / (0.60 &times; 0.38) = <strong>39.5 m²</strong>.</li>
+    <li><strong>Aspect Ratio (Length : Width):</strong> Standard civil ratio of 2.5 : 1 (L = 2.5 &times; W).</li>
+    <li><strong>Constructed Wetland Width (W):</strong> &radic;(39.5 / 2.5) = <strong>4.0 meters</strong>.</li>
+    <li><strong>Constructed Wetland Length (L):</strong> 4.0 &times; 2.5 = <strong>10.0 meters</strong>.</li>
+    <li><strong>Bed Slope:</strong> 1.0% bottom hydraulic slope for uniform gravity drainage.</li>
+  </ul>
+
+  <h2>2.3 The 4-Stage Nature-Based Treatment Train</h2>
+  <p>
+    The EcoFlow system employs a contiguous four-stage sequential train combining physical sedimentation, adsorption filtration, biological phytoremediation, and solar disinfection:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 12%;">Stage</th>
+        <th style="width: 25%;">Unit Operation</th>
+        <th style="width: 15%;">Design HRT</th>
+        <th style="width: 28%;">Internal Media Strata &amp; Depths</th>
+        <th style="width: 20%;">Scientific Mechanism</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Stage 1</strong></td>
+        <td><strong>Grit Chamber &amp; Baffled Grease Trap</strong></td>
+        <td>2.5 Hours</td>
+        <td>
+          • Surface baffle skimmer (25cm clearance)<br/>
+          • Dual settling basin (75cm depth)<br/>
+          • Inverted pyramidal grit hopper (20cm)
+        </td>
+        <td>Stokes' Law gravity settling of dense food particles; density separation of floating free oils (&lt;0.92 SG).</td>
+      </tr>
+      <tr>
+        <td><strong>Stage 2</strong></td>
+        <td><strong>Multi-Layer Bio-Sand &amp; Charcoal Filter</strong></td>
+        <td>6.0 Hours</td>
+        <td>
+          • Fine silica sand 0.2–0.5mm (40 cm)<br/>
+          • Activated hardwood charcoal (25 cm)<br/>
+          • Coarse quartz sand 1–2mm (20 cm)<br/>
+          • Graded river gravel underdrain (25 cm)
+        </td>
+        <td>Deep-bed straining of lint and colloidal TSS; surface biofilm assimilation; high internal surface area adsorption (&gt;350 m²/g) of surfactants and odors.</td>
+      </tr>
+      <tr>
+        <td><strong>Stage 3</strong></td>
+        <td><strong>Horizontal Subsurface Constructed Wetland (HSSF-CW)</strong></td>
+        <td>48.0 Hours<br/>(2 Days)</td>
+        <td>
+          • Emergent macrophyte root zone (35 cm)<br/>
+          • Washed basalt gravel 10–20mm (45 cm)<br/>
+          • 1.2mm HDPE impermeable geomembrane liner
+        </td>
+        <td>Rhizospheric oxygen leakage creates aerobic/anoxic micro-zones; microbial nitrification-denitrification; botanical macronutrient uptake of N and P; sub-surface flow prevents mosquito breeding.</td>
+      </tr>
+      <tr>
+        <td><strong>Stage 4</strong></td>
+        <td><strong>Solar UV Polishing &amp; Storage Sump</strong></td>
+        <td>12.0 Hours</td>
+        <td>
+          • Shallow Solar UV-A polishing weir (10 cm)<br/>
+          • Treated clear water storage sump (1.5 m)<br/>
+          • Submersible reuse pump
+        </td>
+        <td>Natural sunlight photo-oxidation; UV-A germicidal pathogen inactivation; aeration over weir cascade; clean buffer storage.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2.4 Phytoremediation Botanical Matrix &amp; Performance Efficiency</h2>
+  <p>
+    The biological heart of the system relies on native Indian wetland macrophytes whose root networks host rich aerobic bacterial biofilms:
+  </p>
+  <ul>
+    <li>
+      <strong>Canna Lily (<em>Canna indica</em>):</strong> Robust rhizome system with high tolerance for heavy surfactant loads and detergent phosphates. Delivers <strong>92% BOD and 90% phosphate uptake</strong> while adding aesthetic flowering landscapes.
+    </li>
+    <li>
+      <strong>Vetiver Grass / Khus (<em>Chrysopogon zizanioides</em>):</strong> Flagship phytoremediator with massive, vertical fibrous root systems penetrating up to 1.5m deep into the gravel bed. Extensive aerenchyma tissue channels atmospheric oxygen down into the gravel matrix, driving <strong>95% BOD and 94% TSS reduction</strong>.
+    </li>
+    <li>
+      <strong>Cattails (<em>Typha latifolia</em>):</strong> Extensive horizontal rhizomes and tubular stems with high capacity for nitrate removal (91%) and rhizosphere pathogen suppression.
+    </li>
+    <li>
+      <strong>Mixed Polyculture (Recommended):</strong> Co-planting Canna, Vetiver, and Typha creates ecological biodiversity, prevents seasonal die-off, and provides peak year-round pollutant attenuation.
+    </li>
+  </ul>
+
+  <h3>Water Quality Analytics: Influent vs. Treated Output vs. CPCB Norms</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Water Quality Parameter</th>
+        <th style="text-align: right;">Raw Influent</th>
+        <th style="text-align: right;">Treated Output</th>
+        <th style="text-align: right;">Removal (%)</th>
+        <th style="text-align: right;">CPCB Standard</th>
+        <th style="text-align: center;">Compliance Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Biochemical Oxygen Demand (BOD₅)</strong></td>
+        <td style="text-align: right;">160.0 mg/L</td>
+        <td style="text-align: right; font-weight: bold; color: #15803d;">8.0 mg/L</td>
+        <td style="text-align: right; font-weight: bold;">95.0%</td>
+        <td style="text-align: right;">&le; 10.0 mg/L</td>
+        <td style="text-align: center;"><span class="badge badge-green">Grade A Compliant</span></td>
+      </tr>
+      <tr>
+        <td><strong>Total Suspended Solids (TSS)</strong></td>
+        <td style="text-align: right;">140.0 mg/L</td>
+        <td style="text-align: right; font-weight: bold; color: #15803d;">8.4 mg/L</td>
+        <td style="text-align: right; font-weight: bold;">94.0%</td>
+        <td style="text-align: right;">&le; 20.0 mg/L</td>
+        <td style="text-align: center;"><span class="badge badge-green">Grade A Compliant</span></td>
+      </tr>
+      <tr>
+        <td><strong>Turbidity</strong></td>
+        <td style="text-align: right;">85.0 NTU</td>
+        <td style="text-align: right; font-weight: bold; color: #15803d;">2.5 NTU</td>
+        <td style="text-align: right; font-weight: bold;">97.0%</td>
+        <td style="text-align: right;">&le; 5.0 NTU</td>
+        <td style="text-align: center;"><span class="badge badge-green">Crystal Clear</span></td>
+      </tr>
+      <tr>
+        <td><strong>Oil &amp; Grease</strong></td>
+        <td style="text-align: right;">24.0 mg/L</td>
+        <td style="text-align: right; font-weight: bold; color: #15803d;">1.2 mg/L</td>
+        <td style="text-align: right; font-weight: bold;">95.0%</td>
+        <td style="text-align: right;">&le; 5.0 mg/L</td>
+        <td style="text-align: center;"><span class="badge badge-green">Compliant</span></td>
+      </tr>
+      <tr>
+        <td><strong>Chemical Oxygen Demand (COD)</strong></td>
+        <td style="text-align: right;">280.0 mg/L</td>
+        <td style="text-align: right; font-weight: bold; color: #15803d;">28.0 mg/L</td>
+        <td style="text-align: right; font-weight: bold;">90.0%</td>
+        <td style="text-align: right;">&le; 50.0 mg/L</td>
+        <td style="text-align: center;"><span class="badge badge-green">Compliant</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2.5 Campus Recycled Water Allocation &amp; Financial Payback</h2>
+  <p>
+    Accounting for ~6% natural evapotranspiration loss in the wetland bed, the 100-student hostel system yields <strong>4,230 Litres / day (94% recovery yield)</strong> of clean non-potable water, distributed as follows:
+  </p>
+  <ul>
+    <li><strong>Campus Botanical Gardens &amp; Lawn Irrigation (45%):</strong> 1,904 L/day distributed through subsurface drip lines.</li>
+    <li><strong>Dual-Plumbing Toilet &amp; Urinal Flushing (35%):</strong> 1,481 L/day pumped to overhead dedicated header tanks.</li>
+    <li><strong>HVAC Cooling Tower Makeup &amp; Dust Suppression (20%):</strong> 846 L/day utilized in academic block utilities.</li>
+  </ul>
+
+  <div class="callout-box-amber">
+    <strong>Financial Payback:</strong> Producing 4,230 L/day saves <strong>1,544,000 Litres (1,544 kL) of municipal/tanker freshwater annually</strong>. At current commercial water tanker tariffs of ₹45 per 1,000 Litres (kL), this delivers <strong>₹69,480 in annual direct operational savings</strong>, amortizing the passive wetland civil construction cost in under 3.5 years.
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ========================================================================= -->
+  <!-- PART 3: INTEGRATED CIRCULAR SYNTHESIS -->
+  <!-- ========================================================================= -->
+  <h2>Part III: Integrated Campus Circular Sustainability Synthesis</h2>
+  <p>
+    Activities 3 and 4 converge to demonstrate that campus environmental sustainability cannot rely on fragmented, post-consumption cleanups. Instead, sustainable campuses must operate as <strong>closed-loop circular systems</strong>:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Campus Life Cycle Dimension</th>
+        <th>Conventional Linear Approach</th>
+        <th>Our Proposed Integrated Circular Approach</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Drinking Water Hydration</strong></td>
+        <td>Single-use 1L PET bottles sold at food courts; discarded into municipal dumps.</td>
+        <td>Certified, transparent campus RO cooler stations + student Daily Carry Kit (steel bottles).</td>
+      </tr>
+      <tr>
+        <td><strong>Campus Canteen Dining</strong></td>
+        <td>Polypropylene chai cups and plastic meal takeout dabbas.</td>
+        <td>BYOB mug discounts (₹1/cup) and stainless steel reusable tiffin box swaps.</td>
+      </tr>
+      <tr>
+        <td><strong>Hostel Bath &amp; Laundry Effluent</strong></td>
+        <td>Greywater discharged directly into storm drains, contaminating regional aquifers.</td>
+        <td>Decentralized constructed wetland (EcoFlow) purifies water with native phytoremediation plants.</td>
+      </tr>
+      <tr>
+        <td><strong>Landscape Irrigation</strong></td>
+        <td>Over-extraction of deep groundwater borewells or expensive commercial water tankers.</td>
+        <td>100% campus lawn and flowerbed irrigation served by treated wetland effluent.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ACADEMIC EVALUATION & SIGNATURES -->
+  <div class="footer-box">
+    <h2>Academic Evaluation Rubric &amp; Certification</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Evaluation Component</th>
+          <th style="text-align: center;">Max Marks</th>
+          <th style="text-align: center;">Marks Awarded</th>
+          <th>Evaluator Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Activity 3: Empirical Plastic Tracking, Resin Identification &amp; Alternative Viability</strong></td>
+          <td style="text-align: center;">10</td>
+          <td style="text-align: center;">_____</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><strong>Activity 4: Nature-Based Solution Design, Hydraulic Sizing &amp; CPCB Compliance</strong></td>
+          <td style="text-align: center;">10</td>
+          <td style="text-align: center;">_____</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><strong>Interactive Simulator Tools, Report Documentation &amp; Viva Voce Defense</strong></td>
+          <td style="text-align: center;">5</td>
+          <td style="text-align: center;">_____</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr style="font-weight: bold; background-color: #f1f5f9;">
+          <td>Total Score</td>
+          <td style="text-align: center;">25</td>
+          <td style="text-align: center;">_____</td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table style="border: none; margin-top: 30pt;">
+      <tr style="border: none;">
+        <td style="border: none; width: 33%;">
+          <p><strong>Group Coordinator:</strong></p>
+          <br/><br/>
+          <p>___________________________<br/>
+          <strong>Atul Raushan</strong><br/>
+          Roll No: 24ENV014</p>
+        </td>
+        <td style="border: none; width: 33%;">
+          <p><strong>Student Investigator:</strong></p>
+          <br/><br/>
+          <p>___________________________<br/>
+          <strong>Nikhil</strong><br/>
+          Roll No: 24ENV029</p>
+        </td>
+        <td style="border: none; width: 33%; text-align: right;">
+          <p><strong>Faculty Course Evaluator:</strong></p>
+          <br/><br/>
+          <p>___________________________<br/>
+          <strong>Course Instructor Signature</strong><br/>
+          Dept. of Environmental Studies</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>
