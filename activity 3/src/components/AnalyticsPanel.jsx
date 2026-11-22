@@ -415,7 +415,7 @@ export default function AnalyticsPanel({ logs, members, totalWeightGrams, totalI
           <div className="mt-2 text-xs text-slate-500 bg-slate-50 p-2.5 rounded-xl border border-slate-200/70 flex items-center gap-2">
             <Info className="w-4 h-4 text-emerald-700 flex-shrink-0" />
             <span>
-              <strong>Key Finding:</strong> Canteen chai cups & delivery containers peak on project days (Days 3 & 5), showing reliance on single-use convenience during busy college routines.
+              <strong>Key Finding:</strong> Plastic generation peaks on busy campus weekdays (Days 1 & 6 with 13 items each), dominated by PET water bottles (18.0g each, constituting 79.2% of total plastic mass), while dropping significantly on Day 7.
             </span>
           </div>
         </div>

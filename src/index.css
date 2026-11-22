@@ -26,6 +26,21 @@
   animation: flowDash 1.4s linear infinite;
 }
 
+@keyframes waterPulse {
+  0%, 100% {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+.animate-water-wave {
+  animation: waterPulse 3s ease-in-out infinite;
+}
+
 /* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
